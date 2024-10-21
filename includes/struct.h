@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 13:25:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/10/21 17:27:55 by ijaber           ###   ########.fr       */
+/*   Created: 2024/10/21 15:08:46 by ijaber            #+#    #+#             */
+/*   Updated: 2024/10/21 17:01:24 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef STRUCT_H
+# define STRUCT_H
 
-int	main(int ac, char **av)
+# include "cub3d.h"
+
+typedef struct s_texture
 {
-	t_data	data;
+	int					s_x;
+	int					s_y;
+	void				*img;
+	char				*identifier;
+	char				*path;
+	struct s_texture	*next;
+}						t_texture;
 
-	data.fd = open(av[1], O_RDONLY);
-	(void)ac;
-	check_file_cub(av[1]);
-	parse_elements(&data);
-}
+typedef struct s_data
+{
+	int					fd;
+	t_texture			*texture;
+}						t_data;
+
+#endif

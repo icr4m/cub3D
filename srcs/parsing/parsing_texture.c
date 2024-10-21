@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing_texture.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 13:25:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/10/21 17:27:55 by ijaber           ###   ########.fr       */
+/*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
+/*   Updated: 2024/10/21 18:16:37 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+void	parse_elements(t_data *data)
 {
-	t_data	data;
+	char	*line;
+	size_t	nb_elem;
 
-	data.fd = open(av[1], O_RDONLY);
-	(void)ac;
-	check_file_cub(av[1]);
-	parse_elements(&data);
+	nb_elem = 0;
+	line = get_next_line(data->fd);
+	while (line)
+	{
+		if (test_identifier(line))
+			nb_elem++;
+		line = get_next_line(data->fd);
+	}
+	if (nb_elem < 6)
+		free_and_exit(EXIT_FAILURE, "Not enough elements");
+	if (nb_elem > 6)
+		free_and_exit(EXIT_FAILURE, "Too much elements");
 }
