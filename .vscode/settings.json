@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "cub3d.h": "c",
+        "garbage_collector.h": "c"
+    }
+}
