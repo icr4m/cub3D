@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:02:07 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/29 18:16:17 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/29 21:12:07 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	free_and_exit(int code, char *message)
 void	handle_malloc_error(char *message, t_data *data)
 {
 	(void)data;
-	ft_fprintf(2, "Error: gc_malloc when allocate for %s\n", message);
+	ft_fprintf(2, "Error: malloc failed when allocate for %s\n", message);
 	gc_free(DESTROY_PTR);
 	exit(EXIT_FAILURE);
 }

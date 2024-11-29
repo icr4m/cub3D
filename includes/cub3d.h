@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/10/21 17:25:27 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/29 21:59:44 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,17 @@
 # define ID_EA "EA "
 # define ID_F "F "
 # define ID_C "C "
+
+# define WALL '1'
+# define FLOOR '0'
+# define PLAYER_N 'N'
+# define PLAYER_S 'S'
+# define PLAYER_W 'W'
+# define PLAYER_E 'E'
+# define DOOR 'D'
+# define EMPTY ' '
+# define ENDOF '\n'
+
+# define FAILED_ALLOC "Malloc failed."
 
 #endif

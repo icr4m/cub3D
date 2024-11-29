@@ -3,6 +3,12 @@
 
 # include "cub3d.h"
 
+typedef struct s_point
+{
+	size_t				co_x;
+	size_t				co_y;
+}						t_point;
+
 typedef struct s_texture
 {
 	int					s_x;
@@ -16,6 +22,8 @@ typedef struct s_texture
 typedef struct s_data
 {
 	size_t				l_map_start;
+	size_t				amount_l;
+	char				**map_2d;
 	int					fd;
 	t_texture			*texture;
 }						t_data;
