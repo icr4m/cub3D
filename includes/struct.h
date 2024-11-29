@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 15:08:46 by ijaber            #+#    #+#             */
-/*   Updated: 2024/10/21 17:01:24 by ijaber           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef STRUCT_H
 # define STRUCT_H
 
@@ -27,6 +15,7 @@ typedef struct s_texture
 
 typedef struct s_data
 {
+	size_t				l_map_start;
 	int					fd;
 	t_texture			*texture;
 }						t_data;
