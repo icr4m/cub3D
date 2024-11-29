@@ -23,7 +23,7 @@ typedef struct s_data
 {
 	size_t				l_map_start;
 	size_t				amount_l;
-	char				**map_2d;
+	int					**map_2d;
 	int					fd;
 	t_texture			*texture;
 }						t_data;
