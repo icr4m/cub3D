@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:22 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 01:49:11 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 03:30:17 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,23 @@ static void	unknown_char(char *str, t_data *data)
 
 static void	allocate_line(char *line, t_data *data, int i)
 {
-	int	index;
+	size_t	index;
+	size_t	j;
 
+	j = 0;
 	index = 0;
 	data->map_2d[i] = gc_malloc(data->amount_c * (sizeof(int)));
 	if (!data->map_2d[i])
 		handle_malloc_error("parse 2d map", data);
-	ft_memset(data->map_2d[i], -1, data->amount_c * sizeof(int));
-	while (line[index])
+	while (j < data->amount_c)
 	{
-		if (!line[index])
-			data->map_2d[i][index] = -1;
-		else if (line[index] == FLOOR)
+		data->map_2d[i][j] = 1;
+		j++;
+	}
+	while (line[index] && index < data->amount_c)
+	{
+		if (line[index] == FLOOR)
 			data->map_2d[i][index] = 0;
-		else if (line[index] == WALL)
-			data->map_2d[i][index] = 1;
 		else if (line[index] == PLAYER_N)
 			data->map_2d[i][index] = 11;
 		else if (line[index] == PLAYER_S)
@@ -59,7 +61,7 @@ static void	allocate_line(char *line, t_data *data, int i)
 		else if (line[index] == DOOR)
 			data->map_2d[i][index] = 42;
 		else
-			data->map_2d[i][index] = -1;
+			data->map_2d[i][index] = 1;
 		index++;
 	}
 }

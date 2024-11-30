@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 01:27:11 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 03:20:18 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PARSING_H
 
 # include "cub3d.h"
+
+void	check_walls(t_data *data);
 
 void	parse_map(t_data *data, char **av);
 void	start_parse(t_data *data, char **av);

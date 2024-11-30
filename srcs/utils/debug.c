@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 23:25:54 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 00:09:21 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 03:35:25 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	test_map_parsing(t_data *data)
 	while (i <= data->amount_l - data->l_map_start)
 	{
 		j = 0;
-		width = 33;
+		width = data->amount_c;
 		while (j < width)
 		{
 			if (data->map_2d[i][j] == 0)
@@ -48,20 +48,20 @@ void	test_map_parsing(t_data *data)
 		printf("\n");
 		i++;
 	}
-	// Affichage numérique pour debug
-	printf("\n=== NUMERIC VALUES ===\n");
-	i = 0;
-	while (i <= data->amount_l - data->l_map_start)
-	{
-		j = 0;
-		width = 34;
-		while (j < width)
-		{
-			printf("%2d ", data->map_2d[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-	printf("\nMap height: %zu\n", data->amount_l - data->l_map_start);
+	// // Affichage numérique pour debug
+	// printf("\n=== NUMERIC VALUES ===\n");
+	// i = 0;
+	// while (i <= data->amount_l - data->l_map_start)
+	// {
+	// 	j = 0;
+	// 	width = data->amount_c;
+	// 	while (j < width)
+	// 	{
+	// 		printf("%2d ", data->map_2d[i][j]);
+	// 		j++;
+	// 	}
+	// 	printf("\n");
+	// 	i++;
+	// }
+	// printf("\nMap height: %zu\n", data->amount_l - data->l_map_start);
 }

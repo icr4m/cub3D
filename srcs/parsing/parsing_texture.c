@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 01:33:00 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 03:35:18 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	start_parse(t_data *data, char **av)
 	data->l_map_start = count_line + 1;
 	if (nb_elem < 6 || nb_elem > 6)
 		free_and_exit(EXIT_FAILURE, "Wrong elements");
-	data->amount_c = calculate_max_c(data, line);
+	data->amount_c = calculate_max_c(data, line) - 1;
 	parse_map(data, av);
-	// check_walls(data);
+	test_map_parsing(data);
+	check_walls(data);
 }

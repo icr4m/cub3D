@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/29 22:42:18 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 03:20:42 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@
 # define EMPTY ' '
 # define ENDOF '\n'
 
-#
-
 # define FAILED_ALLOC "Malloc failed."
+# define WALL_ERR "Map must be surrounded by walls."
 
 #endif
