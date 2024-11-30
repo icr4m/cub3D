@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:18:45 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 01:13:16 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 06:48:03 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ static size_t	calculate_l(int fd)
 void	init_cub(t_data *data, char **av)
 {
 	data->texture = NULL;
+	data->floor = NULL;
+	data->ceiling = NULL;
 	data->fd = open(av[1], O_RDONLY);
 	if (data->fd == -1)
 		free_and_exit(EXIT_FAILURE, "Error when open map");

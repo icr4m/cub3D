@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 03:20:18 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 06:07:14 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "cub3d.h"
 
 void	check_walls(t_data *data);
+void	check_player(t_data *data);
+void	check_color(t_data *data);
 
 void	parse_map(t_data *data, char **av);
 void	start_parse(t_data *data, char **av);

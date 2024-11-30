@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 23:25:54 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 03:35:25 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 06:34:01 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,17 @@ void	test_map_parsing(t_data *data)
 	// 	printf("\n");
 	// 	i++;
 	// }
-	// printf("\nMap height: %zu\n", data->amount_l - data->l_map_start);
+}
+
+void	affiche_texture_debug(t_data data)
+{
+	while (data.texture)
+	{
+		printf("id:[%s]\npath: %s\n", data.texture->identifier,
+			data.texture->path);
+		data.texture = data.texture->next;
+	}
+	printf("line map start: %zu\n", data.l_map_start);
+	printf("montant de ligne fichier: %zu\n", data.amount_l);
+	printf("Max taille colonne:%zu\n", data.amount_c);
 }

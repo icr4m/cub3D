@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 03:20:42 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 07:02:05 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,9 @@
 
 # define FAILED_ALLOC "Malloc failed."
 # define WALL_ERR "Map must be surrounded by walls."
+# define NO_P_ERR "No player start found"
+# define TOO_P_ERR "Too much player start found"
+# define RGB_ERR "RGB values must be between 0 and 255"
+# define RGB_FORMAT_ERR "RGB format should be R,G,B"
 
 #endif

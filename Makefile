@@ -1,8 +1,8 @@
-NAME = cub3d
+NAME = cub3D
 
 # SOURCES
 SRCS_GC = $(addprefix srcs/garbage_collector/, gc_init.c gc_malloc.c gc_destroy.c gc_utils.c)
-SRCS_PARS = $(addprefix srcs/parsing/, check_walls.c parsing_texture.c parsing_map.c parsing_utils.c)
+SRCS_PARS = $(addprefix srcs/parsing/, checks_map.c parsing_texture.c parsing_map.c parsing_utils.c)
 SRCS_UTILS = $(addprefix srcs/utils/, error.c init_cub.c debug.c)
 MAIN = $(addprefix srcs/, main.c)
 

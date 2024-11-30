@@ -6,13 +6,13 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 11:16:09 by ijaber            #+#    #+#             */
-/*   Updated: 2024/05/17 14:50:54 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 05:13:51 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool	is_whitespace(char c)
+bool	is_whitespace(char c)
 {
 	return ((c >= 9 && c <= 13) || c == 32);
 }

@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 09:33:28 by ijaber            #+#    #+#             */
-/*   Updated: 2024/10/21 13:38:10 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 05:13:59 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(const char *s, unsigned int start, size_t len);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+bool				is_whitespace(char c);
 
 #endif

@@ -6,16 +6,11 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 15:31:57 by ijaber            #+#    #+#             */
-/*   Updated: 2024/10/02 15:32:38 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 05:15:08 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static bool	is_whitespace(char c)
-{
-	return ((c >= 9 && c <= 13) || c == 32);
-}
 
 static bool	ft_isoverflowing(long number, long sign, char c)
 {

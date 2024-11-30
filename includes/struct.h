@@ -9,6 +9,13 @@ typedef struct s_point
 	size_t				co_y;
 }						t_point;
 
+typedef struct s_rgb
+{
+	int					r;
+	int					g;
+	int					b;
+}						t_rgb;
+
 typedef struct s_texture
 {
 	int					s_x;
@@ -27,6 +34,8 @@ typedef struct s_data
 	int					**map_2d;
 	int					fd;
 	t_texture			*texture;
+	t_rgb				*floor;
+	t_rgb				*ceiling;
 }						t_data;
 
 #endif
