@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 07:39:38 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 20:32:48 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	new_texture(t_data *data, char *line, char *identifier)
 	new_node->path = ft_strdup(line);
 	if (!new_node->path)
 		handle_malloc_error("new texture", data);
+	new_node->img = NULL;
 	new_node->next = NULL;
 	if (!data->texture)
 	{
@@ -78,9 +79,9 @@ void	start_parse(t_data *data, char **av)
 	}
 	data->l_map_start = count_line + 1;
 	if (!line)
-		close(data->fd), free_and_exit(EXIT_FAILURE, "No map found");
+		(close(data->fd), free_and_exit(EXIT_FAILURE, "No map found", data));
 	if (nb_elem < 6 || nb_elem > 6)
-		close(data->fd), free_and_exit(EXIT_FAILURE, "Wrong elements");
+		(close(data->fd), free_and_exit(EXIT_FAILURE, "Wrong elements", data));
 	data->amount_c = calculate_max_c(data, line) - 1;
 	parse_map(data, av);
 	(check_walls(data), check_player(data), check_color(data));

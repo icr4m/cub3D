@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 06:07:14 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 20:38:06 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int		test_identifier(char *line, t_data *data);
 
 void	check_file_cub(char *name);
 size_t	calculate_max_c(t_data *data, char *line);
+
+void	start_mlx(t_data *data);
 
 #endif

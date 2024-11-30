@@ -26,7 +26,7 @@ define progress_bar
 		echo -n "■"; \
 		sleep 0.01; \
 	done
-	@echo "]" $(GRAS)"Libft maked.✅"$(NO_COLOR)
+	@echo "]" $(GRAS)"Libft compiled.✅"$(NO_COLOR)
 endef
 
 # progress bar

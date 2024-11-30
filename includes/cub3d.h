@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 07:02:05 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 20:37:33 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@
 # define TOO_P_ERR "Too much player start found"
 # define RGB_ERR "RGB values must be between 0 and 255"
 # define RGB_FORMAT_ERR "RGB format should be R,G,B"
+# define XPM_FAILED "Problem with xpm files"
+# define MLX_ERROR "Failed to initialize mlx"
+# define WIN_ERROR "Failed to create a window with mlx"
 
 #endif
