@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:22 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/29 23:08:03 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 01:49:11 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,20 @@ static void	unknown_char(char *str, t_data *data)
 	}
 }
 
-void	allocate_line(char *line, t_data *data, int i)
+static void	allocate_line(char *line, t_data *data, int i)
 {
 	int	index;
 
 	index = 0;
-	data->map_2d[i] = gc_malloc(ft_strlen(line) * (sizeof(int)));
+	data->map_2d[i] = gc_malloc(data->amount_c * (sizeof(int)));
 	if (!data->map_2d[i])
 		handle_malloc_error("parse 2d map", data);
-	while (line[index] != '\0')
+	ft_memset(data->map_2d[i], -1, data->amount_c * sizeof(int));
+	while (line[index])
 	{
-		if (line[index] == FLOOR)
+		if (!line[index])
+			data->map_2d[i][index] = -1;
+		else if (line[index] == FLOOR)
 			data->map_2d[i][index] = 0;
 		else if (line[index] == WALL)
 			data->map_2d[i][index] = 1;
@@ -61,23 +64,42 @@ void	allocate_line(char *line, t_data *data, int i)
 	}
 }
 
-void	parse_map(t_data *data, char *ex_line)
+void	create_2dmap(t_data *data)
 {
-	int				i;
-	char			*line;
-	const size_t	nb_line = data->amount_l - data->l_map_start;
+	char	*line;
+	int		i;
 
-	line = ex_line;
 	i = 0;
-	data->map_2d = gc_malloc((nb_line + 1) * (sizeof(int *)));
-	if (!data->map_2d)
-		handle_malloc_error("parse 2d map", data);
+	line = get_next_line(data->fd);
 	while (line)
 	{
 		unknown_char(line, data);
 		allocate_line(line, data, i);
+		gc_free(line);
 		line = get_next_line(data->fd);
 		i++;
 	}
+}
+
+void	parse_map(t_data *data, char **av)
+{
+	const size_t	nb_line = data->amount_l - data->l_map_start;
+	size_t			follow_l;
+	char			*line;
+
+	follow_l = data->l_map_start - 1;
+	data->fd = open(av[1], O_RDONLY);
+	if (data->fd == -1)
+		free_and_exit(EXIT_FAILURE, "Error when open map");
+	data->map_2d = gc_malloc((nb_line + 1) * (sizeof(int *)));
+	if (!data->map_2d)
+		handle_malloc_error("parse 2d map", data);
+	while (follow_l)
+	{
+		line = get_next_line(data->fd);
+		gc_free(line);
+		follow_l--;
+	}
+	create_2dmap(data);
 	close(data->fd);
 }

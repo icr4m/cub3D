@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 23:25:54 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/29 23:26:00 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 00:09:21 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	test_map_parsing(t_data *data)
 	printf("\n=== TEST MAP PARSING ===\n");
 	// Affichage de la map avec symboles pour plus de clarté
 	i = 0;
-	while (i < data->amount_l - data->l_map_start)
+	while (i <= data->amount_l - data->l_map_start)
 	{
 		j = 0;
 		width = 33;
@@ -51,7 +51,7 @@ void	test_map_parsing(t_data *data)
 	// Affichage numérique pour debug
 	printf("\n=== NUMERIC VALUES ===\n");
 	i = 0;
-	while (i < data->amount_l - data->l_map_start)
+	while (i <= data->amount_l - data->l_map_start)
 	{
 		j = 0;
 		width = 34;
