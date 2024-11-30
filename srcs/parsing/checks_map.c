@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 02:32:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 07:02:55 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 08:00:04 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,7 @@ void	parse_colors(t_data *data, t_texture *current)
 	r = ft_atoi(rgb_splitted[0]);
 	g = ft_atoi(rgb_splitted[1]);
 	b = ft_atoi(rgb_splitted[2]);
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255 || !r || !g
-		|| !b)
+	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
 		free_and_exit(EXIT_FAILURE, RGB_ERR);
 	gc_free(line_without_space);
 	if (ft_strcmp(current->identifier, ID_C) == 0)

@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 07:04:49 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/11/30 07:39:38 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,11 @@ void	start_parse(t_data *data, char **av)
 		count_line++;
 	}
 	data->l_map_start = count_line + 1;
+	if (!line)
+		close(data->fd), free_and_exit(EXIT_FAILURE, "No map found");
 	if (nb_elem < 6 || nb_elem > 6)
 		close(data->fd), free_and_exit(EXIT_FAILURE, "Wrong elements");
 	data->amount_c = calculate_max_c(data, line) - 1;
 	parse_map(data, av);
-	// test_map_parsing(data), affiche_texture_debug(*data);
 	(check_walls(data), check_player(data), check_color(data));
 }
