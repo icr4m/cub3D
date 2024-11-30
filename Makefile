@@ -74,6 +74,7 @@ val: all
 clean:
 	@rm -rf $(ALL_OBJS)
 	@make $(MAKE_FLAGS) $(LIBFT_PATH) fclean
+	@make $(MAKE_FLAGS) $(MLX_PATH) clean
 	@echo $(BBlue)$(GRAS)"deleting cub3d 🚮"$(NO_COLOR)
 
 fclean: clean
