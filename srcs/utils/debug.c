@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 23:25:54 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 06:34:01 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/01 06:33:01 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,8 @@ void	affiche_texture_debug(t_data data)
 	printf("line map start: %zu\n", data.l_map_start);
 	printf("montant de ligne fichier: %zu\n", data.amount_l);
 	printf("Max taille colonne:%zu\n", data.amount_c);
+	// printf("----TEST PLAYER-------");
+	// printf("start position: %d %d\n", data.start_player_pos.co_x,
+	// 	data.start_player_pos.co_y);
+	// printf("ID de l'orientation:%d\n", data.p_id);
 }

@@ -5,8 +5,8 @@
 
 typedef struct s_point
 {
-	size_t				co_x;
-	size_t				co_y;
+	int					co_x;
+	int					co_y;
 }						t_point;
 
 typedef struct s_rgb
@@ -15,6 +15,13 @@ typedef struct s_rgb
 	int					g;
 	int					b;
 }						t_rgb;
+
+typedef struct s_player
+{
+	t_point				co;
+	double				angle;
+	float				fov;
+}						t_player;
 
 typedef struct s_texture
 {
@@ -33,6 +40,8 @@ typedef struct s_data
 	size_t				l_map_start;
 	size_t				amount_l;
 	size_t				amount_c;
+	t_point				start_player_pos;
+	int					p_id;
 	int					**map_2d;
 	int					fd;
 	t_texture			*texture;
