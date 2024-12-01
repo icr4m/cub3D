@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:24:14 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 21:37:50 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/01 07:19:06 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	parse_xpm(t_data *data, t_texture *current)
 	trimmed_path = ft_strtrim(current->path, "\n\t ");
 	gc_free(current->path);
 	current->path = trimmed_path;
-	printf("test:[%s]\n", current->path);
 	current->img = mlx_xpm_file_to_image(data->mlx_ptr, current->path,
 			&current->s_x, &current->s_y);
 	if (!current->img)

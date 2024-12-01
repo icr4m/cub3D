@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 02:32:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 19:57:46 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/01 07:17:49 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,12 @@ void	check_player(t_data *data)
 		{
 			if (data->map_2d[i][j] == 11 || data->map_2d[i][j] == 12
 				|| data->map_2d[i][j] == 13 || data->map_2d[i][j] == 14)
+			{
+				data->start_player_pos.co_x = i;
+				data->start_player_pos.co_y = j;
+				data->p_id = data->map_2d[i][j];
 				count++;
+			}
 			j++;
 		}
 		i++;

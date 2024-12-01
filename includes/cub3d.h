@@ -6,17 +6,17 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 20:37:33 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/01 09:22:18 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
-
+# define _USE_MATH_DEFINES
+# include <math.h>
+//
 # include <errno.h>
 # include <limits.h>
-# include <readline/history.h>
-# include <readline/readline.h>
 # include <signal.h>
 # include <stdarg.h>
 # include <stdbool.h>
@@ -34,6 +34,7 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 //
+# include "../includes/exec.h"
 # include "../includes/garbage_collector.h"
 # include "../includes/parsing.h"
 # include "../includes/utils.h"
@@ -67,5 +68,10 @@
 # define XPM_FAILED "Problem with xpm files"
 # define MLX_ERROR "Failed to initialize mlx"
 # define WIN_ERROR "Failed to create a window with mlx"
+
+# define FOV 60
+# define TILE_SIZE 30
+# define SCREEN_W 1024
+# define SCREEN_H 640
 
 #endif

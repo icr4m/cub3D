@@ -3,6 +3,10 @@
         "cub3d.h": "c",
         "garbage_collector.h": "c",
         "system_error": "c",
-        "cstdlib": "c"
-    }
+        "cstdlib": "c",
+        "limits.h": "c",
+        "math.h": "c",
+        "ratio": "c"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

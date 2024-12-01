@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:05:15 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 20:01:19 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/01 07:17:14 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	check_file_cub(char *name)
 
 size_t	calculate_max_c(t_data *data, char *line)
 {
-	size_t max_strlen = 0;
+	size_t	max_strlen;
 
+	max_strlen = 0;
 	while (line)
 	{
 		if (max_strlen < ft_strlen(line))
