@@ -40,6 +40,7 @@ typedef struct s_data
 	size_t				l_map_start;
 	size_t				amount_l;
 	size_t				amount_c;
+	t_player			*player;
 	t_point				start_player_pos;
 	int					p_id;
 	int					**map_2d;
