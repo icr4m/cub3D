@@ -2,23 +2,27 @@ NAME = cub3D
 
 # SOURCES
 SRCS_GC = $(addprefix srcs/garbage_collector/, gc_init.c gc_malloc.c gc_destroy.c gc_utils.c)
+SRCS_EXEC = $(addprefix srcs/exec/, start_raycasting.c)
 SRCS_PARS = $(addprefix srcs/parsing/, checks_map.c parsing_colors.c parsing_texture.c parsing_map.c parsing_utils.c parsing_xpm.c)
 SRCS_UTILS = $(addprefix srcs/utils/, error.c init_cub.c debug.c)
 MAIN = $(addprefix srcs/, main.c)
 
 ALL_SRCS +=	$(MAIN)
 ALL_SRCS += $(SRCS_GC)
+ALL_SRCS += $(SRCS_EXEC)
 ALL_SRCS += $(SRCS_PARS)
 ALL_SRCS += $(SRCS_UTILS)
 
 # OBJETS
 OBJ_MAIN	= $(MAIN:.c=.o)
 OBJ_GC 		= $(SRCS_GC:.c=.o)
+OBJ_EXEC 		= $(SRCS_EXEC:.c=.o)
 OBJ_PARS	= $(SRCS_PARS:.c=.o)
 OBJ_UTILS	= $(SRCS_UTILS:.c=.o)
 
 ALL_OBJS	+=	$(OBJ_MAIN)
 ALL_OBJS 	+= 	$(OBJ_GC)
+ALL_OBJS 	+= 	$(OBJ_EXEC)
 ALL_OBJS	+=	$(OBJ_PARS)
 ALL_OBJS	+=	$(OBJ_UTILS)
 
