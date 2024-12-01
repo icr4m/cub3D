@@ -23,6 +23,13 @@ typedef struct s_player
 	float				fov;
 }						t_player;
 
+typedef struct s_rayon
+{
+	double				distance;
+	double				angle;
+	int					is_wall;
+}						t_rayon;
+
 typedef struct s_texture
 {
 	int					s_x;
@@ -41,6 +48,7 @@ typedef struct s_data
 	size_t				amount_l;
 	size_t				amount_c;
 	t_player			*player;
+	t_rayon				*ray;
 	t_point				start_player_pos;
 	int					p_id;
 	int					**map_2d;
