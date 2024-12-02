@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 04:32:42 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/01 13:16:36 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/02 03:58:57 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	start_game(t_data *data)
 	data->player = ft_calloc(1, sizeof(t_player));
 	data->ray = ft_calloc(1, sizeof(t_rayon));
 	init_player(data);
-	loop_render_game(data);
-	// // function qui prends la loop qui render
+	// loop_render_game(data);
+	// function qui prends la loop qui render
 	// mlx_loop_hook(data->mlx_ptr, loop_render_game, &data);
 	// // function qui attends les keys
 	// mlx_key_hook();
