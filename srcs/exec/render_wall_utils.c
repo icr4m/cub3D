@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   render_wall_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 13:25:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/03 11:13:20 by ijaber           ###   ########.fr       */
+/*   Created: 2024/12/02 03:48:01 by ijaber            #+#    #+#             */
+/*   Updated: 2024/12/02 03:50:11 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
-	t_data	data;
-
-	(void)ac;
-	init_cub(&data, av);
-	check_file_cub(av[1]);
-	start_parse(&data, av);
-	// test_map_parsing(&data), affiche_texture_debug(data);
-	start_mlx(&data);
-	start_game(&data);
-	gc_free(DESTROY_PTR);
-	exit(EXIT_SUCCESS);
+	if (x < 0)
+		return ;
+	else if (x >= SCREEN_W)
+		return ;
+	if (y < 0)
+		return ;
+	else if (y >= SCREEN_H)
+		return ;
+	mlx_pixel_put(data->mlx_ptr, data->win_ptr, x, y, color);
 }

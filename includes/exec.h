@@ -13,4 +13,7 @@ int		no_wall_hit(t_data *data, float co_x, float co_y);
 void	start_game(t_data *data);
 int		loop_render_game(t_data *data);
 
+void	render_wall(t_data *data, int ray);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
 #endif

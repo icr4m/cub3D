@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:27:15 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/01 14:03:07 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/03 12:44:48 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ int	no_wall_hit(t_data *data, float co_x, float co_y)
 		return (0);
 	x = floor(co_x / TILE_SIZE);
 	y = floor(co_y / TILE_SIZE);
-	if ((x > (int)data->amount_c || y > (int)data->amount_l))
+	if ((x > (int)data->amount_c || y > (int)data->amount_l
+			- (int)data->l_map_start))
 		return (0);
 	if (data->map_2d[y] && x <= (int)data->amount_c)
 		if (data->map_2d[y][x] == WALL)

@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 09:14:50 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/01 14:11:20 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/03 11:27:25 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ float	cal_vertical_inter(t_data *data, float angle)
 	h_x = floor(data->player->co.co_x / TILE_SIZE) * TILE_SIZE;
 	orientation = inter_check(angle, &h_x, &step_x, 0);
 	h_y = data->player->co.co_y + (h_x - data->player->co.co_x) * tan(angle);
-	if ((unit_circle(angle, 'x') && step_y > 0) || (!unit_circle(angle, 'x')
-			&& step_y < 0))
+	if ((unit_circle(angle, 'x') && step_y < 0) || (!unit_circle(angle, 'x')
+			&& step_y > 0))
 		step_y *= -1;
 	while (no_wall_hit(data, h_x - orientation, h_y))
 	{
@@ -69,6 +69,8 @@ void	cast_rayons(t_data *data)
 	int		ray;
 
 	ray = 0;
+	// printf("%d\n",
+	// data->map_2d[data->player->co.co_y][data->player->co.co_x]);
 	data->ray->angle = data->player->angle - (data->player->fov / 2);
 	while (ray < SCREEN_W)
 	{
@@ -81,10 +83,11 @@ void	cast_rayons(t_data *data)
 		{
 			data->ray->distance = inter_ho;
 			data->ray->is_wall = 1;
-			printf("distance:%f \nwall:%d\n", data->ray->distance,
-				data->ray->is_wall);
 		}
+		// printf("angle:%f \ndistance:%f\n wall:%d\n", data->ray->angle,
+		// 	data->ray->distance, data->ray->is_wall);
 		ray++;
 		data->ray->angle += (data->player->fov / SCREEN_W);
+		render_wall(data, ray);
 	}
 }
