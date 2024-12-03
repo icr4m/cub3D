@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:58:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/02 03:56:57 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/03 09:28:56 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,10 @@ void	draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix)
 	int	i;
 
 	i = bot_pix;
-	(void)top_pix;
 	while (i < SCREEN_H)
 		my_mlx_pixel_put(data, ray, i++, 0xB99470FF);
 	i = 0;
-	while (i < SCREEN_W)
+	while (i < top_pix)
 		my_mlx_pixel_put(data, ray, i++, 0x89CFF3FF);
 }
 

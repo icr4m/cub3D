@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:24:14 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/01 07:19:06 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/03 09:37:07 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	start_mlx(t_data *data)
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		free_and_exit(EXIT_FAILURE, MLX_ERROR, data);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, 200, 200, "TQT");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, SCREEN_W, SCREEN_H, "TQT");
 	if (!data->win_ptr)
 		free_and_exit(EXIT_FAILURE, WIN_ERROR, data);
 	check_xpm(data);
