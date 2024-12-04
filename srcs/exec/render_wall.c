@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:58:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/03 09:28:56 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:32:38 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ void	draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix)
 
 	i = bot_pix;
 	while (i < SCREEN_H)
-		my_mlx_pixel_put(data, ray, i++, 0xB99470FF);
+		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->ceiling->r,
+				data->ceiling->g, data->ceiling->b));
 	i = 0;
 	while (i < top_pix)
-		my_mlx_pixel_put(data, ray, i++, 0x89CFF3FF);
+		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->floor->r,
+				data->floor->g, data->floor->b));
 }
 
 void	draw_wall(t_data *data, int ray, int top_pix, int bot_pix)

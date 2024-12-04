@@ -15,6 +15,7 @@ int		loop_render_game(t_data *data);
 
 void	render_wall(t_data *data, int ray);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		create_trgb(int t, int r, int g, int b);
 
 int		press_manager(int keynb, t_data *data);
 int		release_manager(int keynb, t_data *data);

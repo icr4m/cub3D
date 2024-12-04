@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:40:57 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/04 09:29:08 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/04 10:06:38 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,14 @@ void	move_player(t_data *data, double move_x, double move_y)
 	new_y = roundf(data->player->co.co_y + move_y);
 	map_x = (new_x / TILE_SIZE);
 	map_y = (new_y / TILE_SIZE);
+	if (map_x > (int)data->amount_c || map_y > (int)data->amount_l
+		- (int)data->l_map_start || map_x < 0 || map_y < 0)
+		return ;
+	printf("test1:%d\n", map_x);
+	printf("test2:%d\n", map_y);
 	if (data->map_2d[map_y][map_x] != '1'
-		&& data->map_2d[map_y][data->player->co.co_x / TILE_SIZE] != '1'
-		&& data->map_2d[data->player->co.co_y / TILE_SIZE][map_x] != '1')
+		/* && data->map_2d[map_y][data->player->co.co_x / TILE_SIZE] != '1'
+		&& data->map_2d[data->player->co.co_y / TILE_SIZE][map_x] != '1' */)
 	{
 		data->player->co.co_x = new_x;
 		data->player->co.co_y = new_y;
