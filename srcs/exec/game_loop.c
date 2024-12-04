@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 08:28:43 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/01 09:14:35 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/04 08:59:21 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	loop_render_game(t_data *data)
 {
+	manager_player(data);
 	cast_rayons(data);
 	return (0);
 }

@@ -3,6 +3,20 @@
 
 # include "cub3d.h"
 
+typedef enum e_key
+{
+	UP = 65362,
+	UP2 = 119,
+	RIGHT = 65363,
+	RIGHT2 = 100,
+	LEFT = 65361,
+	LEFT2 = 97,
+	DOWN = 65364,
+	DOWN2 = 115,
+	ECHAP = 65307,
+	CLOSE_ICON = 17,
+}						t_key;
+
 typedef struct s_point
 {
 	int					co_x;
@@ -21,6 +35,9 @@ typedef struct s_player
 	t_point				co;
 	double				angle;
 	float				fov;
+	int					rot_flag;
+	int					lr_flag;
+	int					ud_flag;
 }						t_player;
 
 typedef struct s_rayon

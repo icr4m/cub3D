@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:02:07 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 21:48:01 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/03 15:16:58 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ void	free_and_exit(int code, char *message, t_data *data)
 {
 	ft_fprintf(2, "Error\n");
 	ft_fprintf(2, "%s\n", message);
+	if (data)
+		destroy_all_mlx(data);
+	gc_free(DESTROY_PTR);
+	exit(code);
+}
+
+void	exit_and_free(int code, t_data *data)
+{
 	if (data)
 		destroy_all_mlx(data);
 	gc_free(DESTROY_PTR);
