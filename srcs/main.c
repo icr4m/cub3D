@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/03 11:13:20 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/04 08:29:19 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ int	main(int ac, char **av)
 	// test_map_parsing(&data), affiche_texture_debug(data);
 	start_mlx(&data);
 	start_game(&data);
-	gc_free(DESTROY_PTR);
-	exit(EXIT_SUCCESS);
+	exit_and_free(EXIT_SUCCESS, &data);
 }
