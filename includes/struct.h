@@ -44,7 +44,9 @@ typedef struct s_rayon
 {
 	double				distance;
 	double				angle;
-	int					is_wall;
+	int					inter_h;
+	float				wall_hit_x;
+	float				wall_hit_y;
 }						t_rayon;
 
 typedef struct s_texture
