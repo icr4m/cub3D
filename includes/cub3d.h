@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/05 09:09:53 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/05 18:15:52 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@
 # define SCREEN_W 1024
 # define SCREEN_H 640
 # define SENSI_ROTA 0.06
-# define PLAYER_SPEED 6
+# define PLAYER_SPEED 3.7
 
 #endif

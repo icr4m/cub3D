@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/05 13:37:18 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/05 18:33:23 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	press_manager(int keynb, t_data *data)
 {
+	if (keynb == ECHAP)
+		exit_and_free(EXIT_SUCCESS, data);
 	if (keynb == LEFT2)
 		data->player->lr_flag = -1;
 	if (keynb == RIGHT2)
@@ -49,12 +51,5 @@ int	release_manager(int keynb, t_data *data)
 int	close_windows(t_data *data)
 {
 	exit_and_free(EXIT_SUCCESS, data);
-	return (0);
-}
-
-int	input_manager(int keynb, t_data *data)
-{
-	if (keynb == ECHAP)
-		exit_and_free(EXIT_SUCCESS, data);
 	return (0);
 }
