@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 23:25:54 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/04 15:48:02 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/05 09:56:43 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,21 @@ void	test_map_parsing(t_data *data)
 		printf("\n");
 		i++;
 	}
-	// // Affichage numérique pour debug
-	// printf("\n=== NUMERIC VALUES ===\n");
-	// i = 0;
-	// while (i <= data->amount_l - data->l_map_start)
-	// {
-	// 	j = 0;
-	// 	width = data->amount_c;
-	// 	while (j < width)
-	// 	{
-	// 		printf("%2d ", data->map_2d[i][j]);
-	// 		j++;
-	// 	}
-	// 	printf("\n");
-	// 	i++;
-	// }
+	// Affichage numérique pour debug
+	printf("\n=== NUMERIC VALUES ===\n");
+	i = 0;
+	while (i <= data->amount_l - data->l_map_start)
+	{
+		j = 0;
+		width = data->amount_c;
+		while (j < width)
+		{
+			printf("%2d ", data->map_2d[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 }
 
 void	affiche_texture_debug(t_data data)
