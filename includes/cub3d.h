@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/04 10:00:23 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/05 09:09:53 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@
 # define TILE_SIZE 30
 # define SCREEN_W 1024
 # define SCREEN_H 640
-# define SENSI_ROTA 0.05
+# define SENSI_ROTA 0.06
 # define PLAYER_SPEED 6
 
 #endif

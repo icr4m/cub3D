@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 09:14:50 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/04 15:21:05 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/05 14:18:13 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ float	cal_horizontal_inter(t_data *data, float angle)
 		h_x += step_x;
 		h_y += step_y;
 	}
-	if (no_wall_hit(data, h_x, h_y - orientation) == 0)
-	{
-		data->ray->wall_hit_x = h_x;
-		data->ray->wall_hit_y = h_y;
-	}
+	// if (no_wall_hit(data, h_x, h_y - orientation) == 0)
+	// {
+	// 	data->ray->wall_hit_x = h_x;
+	// 	data->ray->wall_hit_y = h_y;
+	// }
 	return (sqrt(pow(h_x - data->player->co.co_x, 2) + pow(h_y
 				- data->player->co.co_y, 2)));
 }
@@ -63,11 +63,11 @@ float	cal_vertical_inter(t_data *data, float angle)
 		h_x += step_x;
 		h_y += step_y;
 	}
-	if (no_wall_hit(data, h_x, h_y - orientation) == 0)
-	{
-		data->ray->wall_hit_x = h_x;
-		data->ray->wall_hit_y = h_y;
-	}
+	// if (no_wall_hit(data, h_x, h_y - orientation) == 0)
+	// {
+	// 	data->ray->wall_hit_x = h_x;
+	// 	data->ray->wall_hit_y = h_y;
+	// }
 	return (sqrt(pow(h_x - data->player->co.co_x, 2) + pow(h_y
 				- data->player->co.co_y, 2)));
 }
@@ -79,8 +79,6 @@ void	cast_rayons(t_data *data)
 	int		ray;
 
 	ray = 0;
-	// printf("%d\n",
-	// data->map_2d[data->player->co.co_y][data->player->co.co_x]);
 	data->ray->angle = data->player->angle - (data->player->fov / 2);
 	while (ray < SCREEN_W)
 	{
@@ -94,8 +92,6 @@ void	cast_rayons(t_data *data)
 			data->ray->distance = inter_ho;
 			data->ray->inter_h = 1;
 		}
-		// printf("angle:%f \ndistance:%f\n wall:%d\n", data->ray->angle,
-		// 	data->ray->distance, data->ray->inter_h);
 		ray++;
 		data->ray->angle += (data->player->fov / SCREEN_W);
 		render_wall(data, ray);

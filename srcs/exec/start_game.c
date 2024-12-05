@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 04:32:42 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/04 08:30:54 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/05 09:56:25 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ void	start_game(t_data *data)
 	data->player = ft_calloc(1, sizeof(t_player));
 	data->ray = ft_calloc(1, sizeof(t_rayon));
 	init_player(data);
+	// loop_render_game(data);
 	mlx_loop_hook(data->mlx_ptr, loop_render_game, data);
-	// mlx_key_hook(data->win_ptr, &input_manager, data);
-	// // mlx_hook(data->win_ptr, DestroyNotify, StructureNotifyMask,
-	// 	&close_windows,
-	// // 	data);
+	mlx_key_hook(data->win_ptr, &input_manager, data);
+	// mlx_hook(data->win_ptr, DestroyNotify, StructureNotifyMask,
+	// &close_windows,
+	// data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &press_manager, data);
 	mlx_hook(data->win_ptr, KeyRelease, KeyReleaseMask, &release_manager, data);
 	mlx_loop(data->mlx_ptr);
