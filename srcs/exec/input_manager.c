@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 16:43:25 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 18:07:01 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ int	press_manager(int keynb, t_data *data)
 		data->player->rot_flag = -1;
 	if (keynb == RIGHT)
 		data->player->rot_flag = 1;
+	if (keynb == SHIFT)
+		data->player->is_sprinting = SPRINT_VALUE;
+	if (keynb == 65535)
+		data->player->is_sprinting = 13;
 	return (0);
 }
 
@@ -45,6 +49,10 @@ int	release_manager(int keynb, t_data *data)
 		data->player->rot_flag = 0;
 	if (keynb == RIGHT)
 		data->player->rot_flag = 0;
+	if (keynb == SHIFT)
+		data->player->is_sprinting = 0;
+	if (keynb == 65535)
+		data->player->is_sprinting = 0;
 	return (0);
 }
 

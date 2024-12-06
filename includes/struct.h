@@ -15,6 +15,7 @@ typedef enum e_key
 	DOWN2 = 115,
 	ECHAP = 65307,
 	CLOSE_ICON = 17,
+	SHIFT = 65505,
 }						t_key;
 
 typedef struct s_point
@@ -38,6 +39,8 @@ typedef struct s_player
 	int					rot_flag;
 	int					lr_flag;
 	int					ud_flag;
+	float				speed;
+	double				is_sprinting;
 }						t_player;
 
 typedef struct s_rayon

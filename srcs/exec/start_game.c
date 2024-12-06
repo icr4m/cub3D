@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 04:32:42 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 16:41:52 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 17:51:16 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	init_player(t_data *data)
 	if (data->p_id == 14)
 		data->player->angle = M_PI;
 	data->player->fov = (FOV * M_PI) / 180;
+	data->player->speed = START_PLAYER_SPEED;
 }
 
 void	start_game(t_data *data)

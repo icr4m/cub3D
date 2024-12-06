@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:40:57 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 15:15:10 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 18:01:03 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,23 +80,31 @@ void	manager_player(t_data *data)
 		rotate_player(data, 0);
 	if (data->player->lr_flag == 1)
 	{
-		move_x = -sin(data->player->angle) * PLAYER_SPEED;
-		move_y = cos(data->player->angle) * PLAYER_SPEED;
+		move_x = -sin(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
+		move_y = cos(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
 	}
 	if (data->player->lr_flag == -1)
 	{
-		move_x = sin(data->player->angle) * PLAYER_SPEED;
-		move_y = -cos(data->player->angle) * PLAYER_SPEED;
+		move_x = sin(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
+		move_y = -cos(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
 	}
 	if (data->player->ud_flag == 1)
 	{
-		move_x = cos(data->player->angle) * PLAYER_SPEED;
-		move_y = sin(data->player->angle) * PLAYER_SPEED;
+		move_x = cos(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
+		move_y = sin(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
 	}
 	if (data->player->ud_flag == -1)
 	{
-		move_x = -cos(data->player->angle) * PLAYER_SPEED;
-		move_y = -sin(data->player->angle) * PLAYER_SPEED;
+		move_x = -cos(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
+		move_y = -sin(data->player->angle) * (data->player->speed
+				+ data->player->is_sprinting);
 	}
 	move_player(data, move_x, move_y);
 }
