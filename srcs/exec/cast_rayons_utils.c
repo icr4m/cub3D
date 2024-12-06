@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:27:15 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/05 18:39:15 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 10:45:45 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ int	no_wall_hit(t_data *data, float co_x, float co_y)
 	if (data->map_2d[y] && x <= (int)data->amount_c)
 	{
 		if (data->map_2d[y][x] == 1)
-			return (0);
+			return (data->ray->hit_flag = 1 , 0);
 		else if (data->map_2d[y][x] == 42)
-			return (data->ray->is_door = 1, 0);
+			return (data->ray->hit_flag = 2, 0);
 	}
 	return (1);
 }
