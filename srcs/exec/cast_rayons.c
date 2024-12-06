@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 09:14:50 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 13:43:51 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 17:17:17 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,6 @@ void	cast_rayons(t_data *data)
 		ray++;
 		data->ray->angle += (data->player->fov / SCREEN_W);
 		render_wall(data, ray);
+		cast_curseur(data);
 	}
 }

@@ -28,4 +28,6 @@ int			mouse_manager(int x, int y, t_data *data);
 void		manager_player(t_data *data);
 void		rotate_mouse(t_data *data, int flag);
 
+void		cast_curseur(t_data *data);
+
 #endif
