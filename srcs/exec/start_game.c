@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 04:32:42 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 14:21:31 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 16:41:52 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	start_game(t_data *data)
 	mlx_loop_hook(data->mlx_ptr, loop_render_game, data);
 	mlx_hook(data->win_ptr, MotionNotify, PointerMotionMask, mouse_manager,
 		data);
-	// mlx_mouse_hook(data->win_ptr, &mouse_manager, data);
 	mlx_hook(data->win_ptr, DestroyNotify, StructureNotifyMask, &close_windows,
 		data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &press_manager, data);

@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 15:29:37 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 16:43:25 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,13 @@ int	close_windows(t_data *data)
 
 int	mouse_manager(int x, int y, t_data *data)
 {
-	static int	old_x;
-
 	mlx_mouse_hide(data->mlx_ptr, data->win_ptr);
-	if (!old_x)
-		old_x = x;
+	if (x == SCREEN_W / 2 && y == SCREEN_H / 2)
+		return (0);
+	if (x >= SCREEN_W / 2)
+		rotate_mouse(data, 1);
 	else
-	{
-		if (x < old_x)
-			rotate_mouse(data, 0);
-		else
-			rotate_mouse(data, 1);
-		old_x = x;
-	}
-	printf("x: %d y: %d \n", x, y);
+		rotate_mouse(data, 0);
+	mlx_mouse_move(data->mlx_ptr, data->win_ptr, SCREEN_W / 2, SCREEN_H / 2);
 	return (0);
 }
