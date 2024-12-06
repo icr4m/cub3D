@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:40:57 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/05 14:46:33 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 11:41:44 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	move_player(t_data *data, double move_x, double move_y)
 	if (map_x > (int)data->amount_c || map_y > (int)data->amount_l
 		- (int)data->l_map_start || map_x < 0 || map_y < 0)
 		return ;
-	if (data->map_2d[map_y][map_x] != '1'
+	if (data->map_2d[map_y][map_x] != 1
 		/* && data->map_2d[map_y][data->player->co.co_x / TILE_SIZE] != '1'
 		&& data->map_2d[data->player->co.co_y / TILE_SIZE][map_x] != '1' */)
 	{
