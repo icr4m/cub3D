@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:40:57 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/05 15:12:17 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 15:15:10 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,29 @@ void	rotate_player(t_data *data, int flag)
 {
 	if (flag == 1)
 	{
-		data->player->angle += SENSI_ROTA;
+		data->player->angle += SENSI_KEY;
 		if (data->player->angle > 2 * M_PI)
 			data->player->angle -= 2 * M_PI;
 	}
 	else
 	{
-		data->player->angle -= SENSI_ROTA;
+		data->player->angle -= SENSI_KEY;
+		if (data->player->angle < 0)
+			data->player->angle += 2 * M_PI;
+	}
+}
+
+void	rotate_mouse(t_data *data, int flag)
+{
+	if (flag == 1)
+	{
+		data->player->angle += SENSI_MOUSE;
+		if (data->player->angle > 2 * M_PI)
+			data->player->angle -= 2 * M_PI;
+	}
+	else
+	{
+		data->player->angle -= SENSI_MOUSE;
 		if (data->player->angle < 0)
 			data->player->angle += 2 * M_PI;
 	}

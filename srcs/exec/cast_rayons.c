@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 09:14:50 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 10:47:19 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 13:43:51 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	cast_rayons(t_data *data)
 	while (ray < SCREEN_W)
 	{
 		data->ray->inter_h = 0;
-		data->ray->hit_flag = 0;
+		data->ray->is_door = 0;
 		inter_ho = cal_horizontal_inter(data, nor_angle(data->ray->angle));
 		inter_ve = cal_vertical_inter(data, nor_angle(data->ray->angle));
 		if (inter_ve <= inter_ho)

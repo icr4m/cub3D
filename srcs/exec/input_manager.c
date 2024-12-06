@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/05 18:33:23 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 15:29:37 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,24 @@ int	release_manager(int keynb, t_data *data)
 int	close_windows(t_data *data)
 {
 	exit_and_free(EXIT_SUCCESS, data);
+	return (0);
+}
+
+int	mouse_manager(int x, int y, t_data *data)
+{
+	static int	old_x;
+
+	mlx_mouse_hide(data->mlx_ptr, data->win_ptr);
+	if (!old_x)
+		old_x = x;
+	else
+	{
+		if (x < old_x)
+			rotate_mouse(data, 0);
+		else
+			rotate_mouse(data, 1);
+		old_x = x;
+	}
+	printf("x: %d y: %d \n", x, y);
 	return (0);
 }

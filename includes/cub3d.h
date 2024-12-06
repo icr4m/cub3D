@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 11:11:35 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/06 15:16:31 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,12 @@
 # define MLX_ERROR "Failed to initialize mlx"
 # define WIN_ERROR "Failed to create a window with mlx"
 
-# define FOV 75
-# define TILE_SIZE 120
+# define FOV 69
+# define TILE_SIZE 30
 # define SCREEN_W 1024
 # define SCREEN_H 640
-# define SENSI_ROTA 0.06
+# define SENSI_KEY 0.06
+# define SENSI_MOUSE 0.035
 # define PLAYER_SPEED 3.2
 
 #endif
