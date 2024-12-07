@@ -6,11 +6,20 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:24:14 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/03 09:37:07 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 11:28:52 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	init_image(t_data *data)
+{
+	data->img->img_ptr = NULL;
+	data->img->img_ptr = mlx_new_image(data->mlx_ptr, SCREEN_W, SCREEN_H);
+	data->img->addr = mlx_get_data_addr(data->img->img_ptr,
+			&data->img->bits_per_pixel, &data->img->line_length,
+			&data->img->endian);
+}
 
 void	parse_xpm(t_data *data, t_texture *current)
 {
@@ -49,5 +58,9 @@ void	start_mlx(t_data *data)
 	data->win_ptr = mlx_new_window(data->mlx_ptr, SCREEN_W, SCREEN_H, "TQT");
 	if (!data->win_ptr)
 		free_and_exit(EXIT_FAILURE, WIN_ERROR, data);
+	data->img = gc_malloc(sizeof(t_img));
+	if (!data->img)
+		handle_malloc_error("img mlx", data);
 	check_xpm(data);
+	init_image(data);
 }

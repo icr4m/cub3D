@@ -31,6 +31,15 @@ typedef struct s_rgb
 	int					b;
 }						t_rgb;
 
+typedef struct s_img
+{
+	void				*img_ptr;
+	char				*addr;
+	int					bits_per_pixel;
+	int					line_length;
+	int					endian;
+}						t_img;
+
 typedef struct s_player
 {
 	t_point				co;
@@ -79,6 +88,7 @@ typedef struct s_data
 	t_texture			*texture;
 	t_rgb				*floor;
 	t_rgb				*ceiling;
+	t_img				*img;
 }						t_data;
 
 #endif

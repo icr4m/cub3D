@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 18:07:42 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 11:29:59 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <sys/stat.h>
+# include <sys/time.h>
 # include <sys/types.h>
 # include <sys/wait.h>
 # include <unistd.h>
@@ -68,6 +69,7 @@
 # define XPM_FAILED "Problem with xpm files"
 # define MLX_ERROR "Failed to initialize mlx"
 # define WIN_ERROR "Failed to create a window with mlx"
+# define ERR_OPEN "Failed to open map"
 
 # define FOV 69
 # define TILE_SIZE 30
@@ -75,7 +77,7 @@
 # define SCREEN_H 640
 # define SENSI_KEY 0.06
 # define SENSI_MOUSE 0.03
-# define START_PLAYER_SPEED 3.2
-# define SPRINT_VALUE 3.2
+# define START_PLAYER_SPEED 1
+# define SPRINT_VALUE 1
 
 #endif
