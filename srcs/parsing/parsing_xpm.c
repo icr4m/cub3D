@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:24:14 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 11:28:52 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 12:01:54 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	init_image(t_data *data)
 {
-	data->img->img_ptr = NULL;
 	data->img->img_ptr = mlx_new_image(data->mlx_ptr, SCREEN_W, SCREEN_H);
 	data->img->addr = mlx_get_data_addr(data->img->img_ptr,
 			&data->img->bits_per_pixel, &data->img->line_length,
