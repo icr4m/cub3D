@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 18:07:01 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 12:14:23 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	press_manager(int keynb, t_data *data)
 {
+	if (keynb == ECHAP)
+		exit_and_free(EXIT_SUCCESS, data);
 	if (keynb == ECHAP)
 		exit_and_free(EXIT_SUCCESS, data);
 	if (keynb == LEFT2)
