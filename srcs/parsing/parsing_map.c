@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:22 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/01 07:16:23 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 11:15:28 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	parse_map(t_data *data, char **av)
 	follow_l = data->l_map_start - 1;
 	data->fd = open(av[1], O_RDONLY);
 	if (data->fd == -1)
-		free_and_exit(EXIT_FAILURE, "Error when open map", data);
+		free_and_exit(EXIT_FAILURE, ERR_OPEN, data);
 	data->map_2d = gc_malloc((nb_line + 1) * (sizeof(int *)));
 	if (!data->map_2d)
 		handle_malloc_error("parse 2d map", data);

@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:58:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/04 16:10:53 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 11:36:03 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix)
 				data->floor->g, data->floor->b));
 }
 
-int	get_color(t_data *data, int flag) // get the color of the wall
+int	get_color(t_data *data, int flag)
 {
-	data->ray->angle = nor_angle(data->ray->angle); // normalize the angle
+	data->ray->angle = nor_angle(data->ray->angle);
 	if (flag == 0)
 	{
 		if (data->ray->angle > M_PI / 2 && data->ray->angle < 3 * (M_PI / 2))
@@ -36,6 +36,8 @@ int	get_color(t_data *data, int flag) // get the color of the wall
 		else
 			return (0xFF0000FF); // east wall
 	}
+	if (data->ray->is_door == 1)
+		return (0xAAA32AFF);
 	else
 	{
 		if (data->ray->angle > 0 && data->ray->angle < M_PI)

@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cast_curseur.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/21 13:25:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 13:50:34 by ijaber           ###   ########.fr       */
+/*   Created: 2024/12/06 17:05:10 by ijaber            #+#    #+#             */
+/*   Updated: 2024/12/06 17:22:23 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+void	cast_curseur(t_data *data)
 {
-	t_data	data;
+	int	size;
+	int	start_x;
+	int	start_y;
+	int	y;
+	int	x;
 
-	(void)ac;
-	init_cub(&data, av);
-	check_file_cub(av[1]);
-	start_parse(&data, av);
-	// test_map_parsing(&data), affiche_texture_debug(data);
-	start_mlx(&data);
-	start_game(&data);
-	exit_and_free(EXIT_SUCCESS, &data);
+	size = 5;
+	start_x = SCREEN_W / 2 - size / 2;
+	start_y = SCREEN_H / 2 - size / 2;
+	y = 0;
+	while (y < size)
+	{
+		x = 0;
+		while (x < size)
+		{
+			if (y == 2 && x == 2)
+				my_mlx_pixel_put(data, start_x + x, start_y + y, 0xFFFF00);
+			else
+				my_mlx_pixel_put(data, start_x + x, start_y + y, 0x000000);
+			x++;
+		}
+		y++;
+	}
 }

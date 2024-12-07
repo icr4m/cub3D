@@ -15,6 +15,7 @@ typedef enum e_key
 	DOWN2 = 115,
 	ECHAP = 65307,
 	CLOSE_ICON = 17,
+	SHIFT = 65505,
 }						t_key;
 
 typedef struct s_point
@@ -30,6 +31,15 @@ typedef struct s_rgb
 	int					b;
 }						t_rgb;
 
+typedef struct s_img
+{
+	void				*img_ptr;
+	char				*addr;
+	int					bits_per_pixel;
+	int					line_length;
+	int					endian;
+}						t_img;
+
 typedef struct s_player
 {
 	t_point				co;
@@ -38,6 +48,8 @@ typedef struct s_player
 	int					rot_flag;
 	int					lr_flag;
 	int					ud_flag;
+	float				speed;
+	double				is_sprinting;
 }						t_player;
 
 typedef struct s_rayon
@@ -45,6 +57,7 @@ typedef struct s_rayon
 	double				distance;
 	double				angle;
 	int					inter_h;
+	int					is_door;
 	float				wall_hit_x;
 	float				wall_hit_y;
 }						t_rayon;
@@ -75,6 +88,7 @@ typedef struct s_data
 	t_texture			*texture;
 	t_rgb				*floor;
 	t_rgb				*ceiling;
+	t_img				*img;
 }						t_data;
 
 #endif

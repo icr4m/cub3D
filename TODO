@@ -1,6 +1,6 @@
 faire la minimap
 reflechir et coder desgin portes
 reflechir et coder sprites
-fix angle spawn
-faire les textures
+gerer les textures
 rajouter de l'ombre distance ??
+mettre des bools aux flags/is

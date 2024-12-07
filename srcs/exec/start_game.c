@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 04:32:42 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/06 11:42:43 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 12:14:49 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	init_player(t_data *data)
 	if (data->p_id == 14)
 		data->player->angle = M_PI;
 	data->player->fov = (FOV * M_PI) / 180;
+	data->player->speed = START_PLAYER_SPEED;
 }
 
 void	start_game(t_data *data)
@@ -34,9 +35,9 @@ void	start_game(t_data *data)
 	data->player = ft_calloc(1, sizeof(t_player));
 	data->ray = ft_calloc(1, sizeof(t_rayon));
 	init_player(data);
-	// loop_render_game(data);
 	mlx_loop_hook(data->mlx_ptr, loop_render_game, data);
-	mlx_key_hook(data->win_ptr, &input_manager, data);
+	mlx_hook(data->win_ptr, MotionNotify, PointerMotionMask, mouse_manager,
+		data);
 	mlx_hook(data->win_ptr, DestroyNotify, StructureNotifyMask, &close_windows,
 		data);
 	mlx_hook(data->win_ptr, KeyPress, KeyPressMask, &press_manager, data);
