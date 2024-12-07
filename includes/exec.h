@@ -29,6 +29,6 @@ void		manager_player(t_data *data);
 void		rotate_mouse(t_data *data, int flag);
 
 void		cast_curseur(t_data *data);
-void		draw_minimap_walls(t_data *data, float player_x, float player_y);
+void		draw_filled_circle(t_data *data);
 
 #endif

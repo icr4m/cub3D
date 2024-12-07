@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 14:29:21 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/07 16:21:31 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@
 
 # define FOV 80
 # define TILE_SIZE 30
-# define SCREEN_W 1080
-# define SCREEN_H
+# define SCREEN_W 1920
+# define SCREEN_H 1080
 # define SENSI_KEY 0.045
 # define SENSI_MOUSE 0.03
 # define START_PLAYER_SPEED 2.9
