@@ -1,6 +1,4 @@
 reflechir et coder desgin portes
 reflechir et coder sprites
 gerer les textures
-mettre des bools aux flags/is
-BIND activation minimap
 (fonction qui calcule la couleur moyenne du mur pour la minimap)

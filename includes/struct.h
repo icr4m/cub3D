@@ -58,8 +58,8 @@ typedef struct s_rayon
 {
 	double				distance;
 	double				angle;
-	int					inter_h;
-	int					is_door;
+	bool				inter_h;
+	bool				is_door;
 	float				wall_hit_x;
 	float				wall_hit_y;
 }						t_rayon;
