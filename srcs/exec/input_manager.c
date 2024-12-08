@@ -6,18 +6,26 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 16:36:03 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/08 12:04:47 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+static void	minimap_manager(t_data *data)
+{
+	if (data->is_minimap == 0)
+		data->is_minimap = 1;
+	else if (data->is_minimap == 1)
+		data->is_minimap = 0;
+}
+
 int	press_manager(int keynb, t_data *data)
 {
 	if (keynb == ECHAP)
 		exit_and_free(EXIT_SUCCESS, data);
-	if (keynb == ECHAP)
-		exit_and_free(EXIT_SUCCESS, data);
+	if (keynb == M)
+		minimap_manager(data);
 	if (keynb == LEFT2)
 		data->player->lr_flag = -1;
 	if (keynb == RIGHT2)

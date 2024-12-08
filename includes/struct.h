@@ -16,6 +16,8 @@ typedef enum e_key
 	ECHAP = 65307,
 	CLOSE_ICON = 17,
 	SHIFT = 65505,
+	E = 101,
+	M = 109
 }						t_key;
 
 typedef struct s_point
@@ -74,6 +76,7 @@ typedef struct s_texture
 
 typedef struct s_data
 {
+	bool				is_minimap;
 	void				*mlx_ptr;
 	void				*win_ptr;
 	size_t				l_map_start;

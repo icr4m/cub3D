@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 18:18:45 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/08 11:28:20 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:58:20 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static size_t	calculate_l(int fd)
 
 void	init_cub(t_data *data, char **av)
 {
+	data->is_minimap = 0;
 	data->texture = NULL;
 	data->floor = NULL;
 	data->ceiling = NULL;
