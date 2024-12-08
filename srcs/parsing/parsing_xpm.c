@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:24:14 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 12:01:54 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:30:08 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,14 @@ void	start_mlx(t_data *data)
 	data->mlx_ptr = mlx_init();
 	if (!data->mlx_ptr)
 		free_and_exit(EXIT_FAILURE, MLX_ERROR, data);
-	data->win_ptr = mlx_new_window(data->mlx_ptr, SCREEN_W, SCREEN_H, "TQT");
+	data->win_ptr = mlx_new_window(data->mlx_ptr, SCREEN_W, SCREEN_H,
+			"TIG_CUB3D");
 	if (!data->win_ptr)
 		free_and_exit(EXIT_FAILURE, WIN_ERROR, data);
 	data->img = gc_malloc(sizeof(t_img));
 	if (!data->img)
 		handle_malloc_error("img mlx", data);
+	data->img->img_ptr = NULL;
 	check_xpm(data);
 	init_image(data);
 }

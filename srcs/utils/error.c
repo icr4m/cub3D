@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:02:07 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 16:33:40 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/08 11:27:47 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	destroy_all_mlx(t_data *data)
 	if (data->mlx_ptr)
 		mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
-	// free(data->img->img_ptr);
 }
 
 void	free_and_exit(int code, char *message, t_data *data)
