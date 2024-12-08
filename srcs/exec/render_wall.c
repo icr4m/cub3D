@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_wall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:58:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 11:36:03 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/08 16:01:51 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,18 @@ void	draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix)
 int	get_color(t_data *data, int flag)
 {
 	data->ray->angle = nor_angle(data->ray->angle);
-	if (flag == 0)
+	// Vérifier d'abord si c'est une porte
+	if (data->ray->is_door == 1)
+		return (0xAAA32AFF);
+	// Ensuite vérifier le type d'intersection
+	if (flag == 0) // Intersections verticales
 	{
 		if (data->ray->angle > M_PI / 2 && data->ray->angle < 3 * (M_PI / 2))
 			return (0xB5B5B5FF); // west wall
 		else
 			return (0xFF0000FF); // east wall
 	}
-	if (data->ray->is_door == 1)
-		return (0xAAA32AFF);
-	else
+	else // Intersections horizontales
 	{
 		if (data->ray->angle > 0 && data->ray->angle < M_PI)
 			return (0x0000FFFF); // south wall

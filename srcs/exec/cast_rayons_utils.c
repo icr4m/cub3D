@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rayons_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:27:15 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 08:59:18 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/08 15:24:06 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ int	no_wall_hit(t_data *data, float co_x, float co_y)
 		return (0);
 	x = floor(co_x / TILE_SIZE);
 	y = floor(co_y / TILE_SIZE);
-	// printf("Checking position: x=%d, y=%d, char=%d\n", x, y,
-	// 	data->map_2d[y][x]);
 	if ((x >= (int)data->amount_c || y >= (int)(data->amount_l
 				- data->l_map_start)))
 		return (0);
@@ -92,7 +90,10 @@ int	no_wall_hit(t_data *data, float co_x, float co_y)
 		if (data->map_2d[y][x] == 1)
 			return (0);
 		else if (data->map_2d[y][x] == 42)
-			return (data->ray->is_door = 1, 0);
+		{
+			data->ray->is_door = 1;
+			return (0);
+		}
 	}
 	return (1);
 }

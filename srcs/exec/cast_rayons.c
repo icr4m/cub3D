@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rayons.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 09:14:50 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 09:05:58 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/08 17:16:04 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,30 +72,43 @@ float	cal_vertical_inter(t_data *data, float angle)
 				- data->player->co.co_y, 2)));
 }
 
+// Dans cast_rayons.c:
 void	cast_rayons(t_data *data)
 {
 	double	inter_ve;
 	double	inter_ho;
 	int		ray;
 
+	int door_h;
+	int door_v; 
 	ray = 0;
 	data->ray->angle = data->player->angle - (data->player->fov / 2);
 	while (ray < SCREEN_W)
 	{
-		data->ray->inter_h = 0;
+		data->ray->is_door = 0;
+		door_h = 0; 
+		door_v = 0; 
 		data->ray->is_door = 0;
 		inter_ho = cal_horizontal_inter(data, nor_angle(data->ray->angle));
+		door_h = data->ray->is_door;
+		data->ray->is_door = 0;
 		inter_ve = cal_vertical_inter(data, nor_angle(data->ray->angle));
+		door_v = data->ray->is_door;
 		if (inter_ve <= inter_ho)
+		{
 			data->ray->distance = inter_ve;
+			data->ray->inter_h = 0;
+			data->ray->is_door = door_v;
+		}
 		else
 		{
 			data->ray->distance = inter_ho;
 			data->ray->inter_h = 1;
+			data->ray->is_door = door_h;
 		}
-		ray++;
-		data->ray->angle += (data->player->fov / SCREEN_W);
 		render_wall(data, ray);
 		cast_curseur(data);
+		data->ray->angle += (data->player->fov / SCREEN_W);
+		ray++;
 	}
 }
