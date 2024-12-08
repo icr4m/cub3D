@@ -63,7 +63,7 @@ $(LIBFT_PATH)/libft.a:
 	@make $(MAKE_FLAGS) $(LIBFT_PATH)
 
 $(MLX_PATH)/libmlx.a:
-	@make -C $(MLX_PATH)
+	@make $(MAKE_FLAGS) $(MLX_PATH)
 
 .c.o:
 	@cc $(CFLAGS) $(INCLUDES_OPT) -c $< -o ${<:.c=.o}
