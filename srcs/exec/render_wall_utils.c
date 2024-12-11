@@ -6,7 +6,7 @@
 /*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 03:48:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/10 16:16:53 by rsk              ###   ########.fr       */
+/*   Updated: 2024/12/10 22:49:58 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,24 +46,27 @@ t_texture	*search_texture(t_data *data, char *identifier)
 t_texture	*get_texture(t_data *data, int i)
 {
 	t_texture	*selected;
+	float		angle;
 
+	angle = data->ray->angle;
+	// S'assurer que l'angle est bien entre 0 et 2π
+	while (angle >= 2 * M_PI)
+		angle -= 2 * M_PI;
+	while (angle < 0)
+		angle += 2 * M_PI;
 	if (i == 0) // Intersections verticales
 	{
-		if (data->ray->angle > M_PI / 2 && data->ray->angle < 3 * (M_PI / 2))
+		if (angle > M_PI / 2 && angle < 3 * (M_PI / 2))
 			selected = search_texture(data, ID_WE);
 		else
 			selected = search_texture(data, ID_EA);
 	}
 	else // Intersections horizontales
 	{
-		if (data->ray->angle > 0 && data->ray->angle < M_PI)
+		if (angle > 0 && angle < M_PI)
 			selected = search_texture(data, ID_NO);
 		else
 			selected = search_texture(data, ID_SO);
 	}
-	// printf("Angle: %f, Intersection: %s, Selected texture: %s\n",
-	// 		data->ray->angle * 180 / M_PI,
-	// 		i == 0 ? "vertical" : "horizontal",
-	// 		selected->identifier);
 	return (selected);
 }

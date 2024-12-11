@@ -72,6 +72,10 @@ typedef struct s_texture
 	char				*identifier;
 	char				*path;
 	struct s_texture	*next;
+	int					bpp;
+	char				*pixel_addr;
+	int					line_lenght;
+	int					endian;
 }						t_texture;
 
 typedef struct s_data
