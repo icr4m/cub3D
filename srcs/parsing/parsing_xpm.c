@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_xpm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:24:14 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/11 12:15:19 by rsk              ###   ########.fr       */
+/*   Updated: 2024/12/11 17:46:28 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void	init_image(t_data *data)
 {
 	data->img->img_ptr = mlx_new_image(data->mlx_ptr, SCREEN_W, SCREEN_H);
 	data->img->addr = mlx_get_data_addr(data->img->img_ptr,
-										&data->img->bits_per_pixel,
-										&data->img->line_length,
-										&data->img->endian);
+			&data->img->bits_per_pixel, &data->img->line_length,
+			&data->img->endian);
 }
 
 void	parse_xpm(t_data *data, t_texture *current)
@@ -32,10 +31,7 @@ void	parse_xpm(t_data *data, t_texture *current)
 			&current->s_x, &current->s_y);
 	if (!current->img)
 		free_and_exit(EXIT_FAILURE, XPM_FAILED, data);
-	data->texture->pixel_addr = mlx_get_data_addr(data->texture->img,
-													&data->texture->bpp,
-													&data->texture->line_lenght,
-													&data->texture->endian);
+	
 }
 
 void	check_xpm(t_data *data)
