@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_texture.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/11/30 20:32:48 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/13 00:53:49 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	test_identifier(char *line, t_data *data)
 		return (new_texture(data, line + 2, ID_F), 1);
 	else if (ft_strncmp(line, ID_C, 2) == 0)
 		return (new_texture(data, line + 2, ID_C), 1);
+	else if (ft_strncmp(line, ID_DO, 2) == 0)
+		return (new_texture(data, line + 2, ID_DO), 1);
 	return (0);
 }
 
@@ -80,7 +82,7 @@ void	start_parse(t_data *data, char **av)
 	data->l_map_start = count_line + 1;
 	if (!line)
 		(close(data->fd), free_and_exit(EXIT_FAILURE, "No map found", data));
-	if (nb_elem < 6 || nb_elem > 6)
+	if (nb_elem < 6 || nb_elem > 7)
 		(close(data->fd), free_and_exit(EXIT_FAILURE, "Wrong elements", data));
 	data->amount_c = calculate_max_c(data, line) - 1;
 	parse_map(data, av);

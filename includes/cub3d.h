@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/11 16:47:26 by erwfonta         ###   ########.fr       */
+/*   Updated: 2024/12/12 22:34:11 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@
 # define ID_EA "EA "
 # define ID_F "F "
 # define ID_C "C "
+# define ID_DO "DO "
 
 # define WALL '1'
 # define FLOOR '0'

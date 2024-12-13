@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_wall_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 03:48:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/11 18:25:07 by erwfonta         ###   ########.fr       */
+/*   Updated: 2024/12/12 22:49:06 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ t_texture	*get_texture(t_data *data, int i)
 	t_texture	*selected;
 	float		angle;
 
+	if (data->ray->is_door)
+		return (search_texture(data, ID_DO));
 	angle = data->ray->angle;
 	while (angle >= 2 * M_PI)
 		angle -= 2 * M_PI;

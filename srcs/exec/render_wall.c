@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_wall.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:58:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/11 18:34:47 by erwfonta         ###   ########.fr       */
+/*   Updated: 2024/12/13 00:58:09 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix)
 	i = bot_pix;
 	while (i < SCREEN_H)
 		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->ceiling->r,
-				data->ceiling->g, data->ceiling->b));
+					data->ceiling->g, data->ceiling->b));
 	i = 0;
 	while (i < top_pix)
 		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->floor->r,
-				data->floor->g, data->floor->b));
+					data->floor->g, data->floor->b));
 }
 
 double	get_texture_x_offset(t_texture *texture, t_data *data)
@@ -32,6 +32,18 @@ double	get_texture_x_offset(t_texture *texture, t_data *data)
 	float	angle;
 
 	angle = data->ray->angle;
+	if (data->ray->is_door)
+	{
+		// Pour les portes, on garde la même logique mais sans inverser
+		if (data->ray->inter_h == 1)
+			x_offset = fmod(data->ray->wall_hit_x, TILE_SIZE) * (texture->s_x
+					/ TILE_SIZE);
+		else
+			x_offset = fmod(data->ray->wall_hit_y, TILE_SIZE) * (texture->s_x
+					/ TILE_SIZE);
+		return (x_offset);
+	}
+	// Logique existante pour les murs
 	if (data->ray->inter_h == 1)
 	{
 		if (angle > 0 && angle < M_PI)
@@ -86,10 +98,8 @@ void	draw_wall(t_data *data, int ray, int top_pix, int bot_pix,
 	int			color;
 
 	texture = get_texture(data, data->ray->inter_h);
-	if (!texture || !texture->img)
+	if (!texture || !texture->img || !texture->pixel_addr)
 		return ;
-	texture->pixel_addr = mlx_get_data_addr(texture->img, &texture->bpp,
-			&texture->line_lenght, &texture->endian);
 	step = (double)texture->s_y / wall_h;
 	x_offset = get_texture_x_offset(texture, data);
 	y_offset = (top_pix - (SCREEN_H / 2) + (wall_h / 2)) * step;
@@ -98,7 +108,7 @@ void	draw_wall(t_data *data, int ray, int top_pix, int bot_pix,
 	while (top_pix < bot_pix && (int)y_offset < texture->s_y)
 	{
 		color = get_texture_color(calculate_pos(y_offset, x_offset, texture),
-				texture);
+									texture);
 		my_mlx_pixel_put(data, ray, top_pix, color);
 		y_offset += step;
 		top_pix++;
