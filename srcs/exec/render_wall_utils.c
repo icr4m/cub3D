@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_wall_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 03:48:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/12 22:49:06 by rsk              ###   ########.fr       */
+/*   Updated: 2024/12/16 15:47:39 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,17 @@ t_texture	*get_texture(t_data *data, int i)
 			selected = search_texture(data, ID_NO);
 	}
 	return (selected);
+}
+
+t_door	*find_door(t_data *data, float x, float y)
+{
+	int map_x = floor(x / TILE_SIZE);
+	int map_y = floor(y / TILE_SIZE);
+
+	for (int i = 0; i < data->nb_doors; i++)
+	{
+		if (data->doors[i]->x == map_x && data->doors[i]->y == map_y)
+			return (data->doors[i]);
+	}
+	return (NULL);
 }

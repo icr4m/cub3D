@@ -6,7 +6,7 @@
 /*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:27:15 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/08 15:24:06 by erwfonta         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:49:22 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,9 @@ int	unit_circle(float angle, char c)
 
 int	no_wall_hit(t_data *data, float co_x, float co_y)
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
+	t_door	*door;
 
 	if (co_x < 0 || co_y < 0)
 		return (0);
@@ -91,6 +92,9 @@ int	no_wall_hit(t_data *data, float co_x, float co_y)
 			return (0);
 		else if (data->map_2d[y][x] == 42)
 		{
+			door = find_door(data, co_x, co_y);
+			if (door && door->factor < 0.1)
+				return (1);
 			data->ray->is_door = 1;
 			return (0);
 		}

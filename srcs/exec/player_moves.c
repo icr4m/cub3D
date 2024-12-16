@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_moves.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:40:57 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/08 13:07:08 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/16 16:03:04 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 void	move_player(t_data *data, double move_x, double move_y)
 {
-	int	map_x;
-	int	map_y;
-	int	new_x;
-	int	new_y;
+	int		map_x;
+	int		map_y;
+	int		new_x;
+	int		new_y;
+	t_door	*door;
 
 	new_x = roundf(data->player->co.co_x + move_x);
 	new_y = roundf(data->player->co.co_y + move_y);
@@ -26,6 +27,12 @@ void	move_player(t_data *data, double move_x, double move_y)
 	if (map_x > (int)data->amount_c || map_y > (int)data->amount_l
 		- (int)data->l_map_start || map_x < 0 || map_y < 0)
 		return ;
+	if (data->map_2d[map_y][map_x] == 42)
+	{
+		door = find_door(data, new_x, new_y);
+		if (!door || door->factor > 0.1)
+			return ;
+	}
 	if (data->map_2d[map_y][map_x] != 1
 		&& data->map_2d[map_y][data->player->co.co_x / TILE_SIZE] != 1
 		&& data->map_2d[data->player->co.co_y / TILE_SIZE][map_x] != 1)

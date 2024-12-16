@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/08 12:04:47 by ijaber           ###   ########.fr       */
+/*   Updated: 2024/12/16 15:42:34 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,27 @@ int	press_manager(int keynb, t_data *data)
 		data->player->is_sprinting = SPRINT_VALUE;
 	if (keynb == 65535)
 		data->player->is_sprinting = 13;
+	if(keynb == E && data->near_door)
+	{
+		float player_x = data->player->co.co_x;
+        float player_y = data->player->co.co_y;
+        
+        for (int i = 0; i < data->nb_doors; i++)
+        {
+            float door_x = data->doors[i]->x * TILE_SIZE + TILE_SIZE / 2;
+            float door_y = data->doors[i]->y * TILE_SIZE + TILE_SIZE / 2;
+            float distance = sqrt(pow(player_x - door_x, 2) + pow(player_y - door_y, 2));
+            
+            if (distance < TILE_SIZE * 1.5)
+            {
+                if (data->doors[i]->state == 0)  // Si fermée
+                    data->doors[i]->state = 1;   // Commencer à ouvrir
+                else if (data->doors[i]->state == 2)  // Si ouverte
+                    data->doors[i]->state = 3;   // Commencer à fermer
+                break;
+            }
+        }
+	}
 	return (0);
 }
 

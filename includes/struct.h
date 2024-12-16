@@ -42,6 +42,15 @@ typedef struct s_img
 	int					endian;
 }						t_img;
 
+typedef struct s_door
+{
+	int					state;
+	float				factor;
+	int					x;
+	int					y;
+	int					ignore_interact;
+}						t_door;
+
 typedef struct s_player
 {
 	t_point				co;
@@ -80,6 +89,9 @@ typedef struct s_texture
 
 typedef struct s_data
 {
+	t_door				**doors;
+	int					nb_doors;
+	int					near_door;
 	bool				is_minimap;
 	void				*mlx_ptr;
 	void				*win_ptr;
