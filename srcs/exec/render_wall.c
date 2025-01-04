@@ -31,8 +31,7 @@ double	get_texture_x_offset(t_texture *texture, t_data *data)
 	double	x_offset;
 	float	angle;
 	t_door	*door;
-	float	adjusted_x;
-	float	adjusted_y;
+	float	door_edge;
 
 	angle = data->ray->angle;
 	if (data->ray->is_door)
@@ -42,15 +41,21 @@ double	get_texture_x_offset(t_texture *texture, t_data *data)
 			return (0);
 		if (data->ray->inter_h == 1)
 		{
-			adjusted_x = data->ray->wall_hit_x + (TILE_SIZE * (1.0
-						- door->factor));
-			x_offset = fmod(adjusted_x, TILE_SIZE) * (texture->s_x / TILE_SIZE);
+			// Pour les intersections horizontales
+			door_edge = (door->x * TILE_SIZE) + (TILE_SIZE * door->factor);
+			if (data->ray->wall_hit_x > door_edge)
+				return (-1); // Code spécial pour indiquer de ne rien dessiner
+			x_offset = fmod(data->ray->wall_hit_x, TILE_SIZE) * (texture->s_x
+					/ TILE_SIZE);
 		}
 		else
 		{
-			adjusted_y = data->ray->wall_hit_y + (TILE_SIZE * (1.0
-						- door->factor));
-			x_offset = fmod(adjusted_y, TILE_SIZE) * (texture->s_x / TILE_SIZE);
+			// Pour les intersections verticales
+			door_edge = (door->y * TILE_SIZE) + (TILE_SIZE * door->factor);
+			if (data->ray->wall_hit_y > door_edge)
+				return (-1); // Code spécial pour indiquer de ne rien dessiner
+			x_offset = fmod(data->ray->wall_hit_y, TILE_SIZE) * (texture->s_x
+					/ TILE_SIZE);
 		}
 		return (x_offset);
 	}
@@ -112,6 +117,8 @@ void	draw_wall(t_data *data, int ray, int top_pix, int bot_pix,
 		return ;
 	step = (double)texture->s_y / wall_h;
 	x_offset = get_texture_x_offset(texture, data);
+	if (x_offset == -1)
+		return ;
 	y_offset = (top_pix - (SCREEN_H / 2) + (wall_h / 2)) * step;
 	if (y_offset < 0)
 		y_offset = 0;

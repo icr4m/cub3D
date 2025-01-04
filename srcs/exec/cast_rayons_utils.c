@@ -78,6 +78,7 @@ int	no_wall_hit(t_data *data, float co_x, float co_y)
 	int		x;
 	int		y;
 	t_door	*door;
+	float	door_edge;
 
 	if (co_x < 0 || co_y < 0)
 		return (0);
@@ -93,11 +94,25 @@ int	no_wall_hit(t_data *data, float co_x, float co_y)
 		else if (data->map_2d[y][x] == 42)
 		{
 			door = find_door(data, co_x, co_y);
-			if (door && door->factor < 0.1)
-				return (1);
+			if (!door)
+				return (0);
 			data->ray->is_door = 1;
-			return (0);
+			if (data->ray->inter_h)
+			{
+				door_edge = fmod(co_x, TILE_SIZE);
+			}
+			else
+			{
+				door_edge = fmod(co_y, TILE_SIZE);
+			}
+			if (door_edge < (TILE_SIZE * door->factor))
+			{
+				return (0);
+			}
+			data->ray->is_door = 0;
+			return (1);
 		}
 	}
+	data->ray->is_door = 0;
 	return (1);
 }
