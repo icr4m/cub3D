@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rayons.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 09:14:50 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/11 11:37:14 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/11 16:19:38 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,10 @@ static double	handle_intersections(t_data *data, int is_horizontal,
 
 void	cast_rayons(t_data *data)
 {
-	int ray;
-	float coords[4];
-	double dist[2];
-	int door;
+	int		ray;
+	float	coords[4];
+	double	dist[2];
+	int		door;
 
 	init_ray_data(data, &ray);
 	while (ray < SCREEN_W)

@@ -1,4 +1,10 @@
-reflechir et coder desgin portes
-reflechir et coder sprites
-gerer les textures des portes
-(fonction qui calcule la couleur moyenne du mur pour la minimap)
+Finir les portes
+Trouver textures map bonus/rendu
+Norme
+Verifier tous les mallocs (proteger & garbage)
+fonctions static quand besoin
+enlever les bouts de code inutile (code et .h)
+fix le moment le fait de rentrer dans les murs 2 direction sur 4
+
+idees bonus :
+rajouter sur la minimap ou en + la ou regarde la direction regarde par le joueur
