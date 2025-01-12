@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:40:57 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/08 13:07:08 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/12 12:52:22 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,30 @@
 
 void	move_player(t_data *data, double move_x, double move_y)
 {
-	int	map_x;
-	int	map_y;
-	int	new_x;
-	int	new_y;
+	int		map_x;
+	int		map_y;
+	int		new_x;
+	int		new_y;
+	double	dnew_x;
+	double	dnew_y;
 
-	new_x = roundf(data->player->co.co_x + move_x);
-	new_y = roundf(data->player->co.co_y + move_y);
+	dnew_x = data->player->co.co_x + move_x;
+	dnew_y = data->player->co.co_y + move_y;
+	printf("test x:%.6f\n", dnew_x);
+	printf("test y:%.6f\n", dnew_y);
+	new_x = roundf(dnew_x);
+	new_y = roundf(dnew_y);
 	map_x = (new_x / TILE_SIZE);
 	map_y = (new_y / TILE_SIZE);
-	if (map_x > (int)data->amount_c || map_y > (int)data->amount_l
-		- (int)data->l_map_start || map_x < 0 || map_y < 0)
-		return ;
+	printf("new x:%d\n", map_x);
+	printf("new y:%d\n", map_y);
+	if (new_x % TILE_SIZE == 0)
+		new_x += 1;
+	if (new_y % TILE_SIZE == 0)
+		new_y += 1;
+	// if (map_x >= (int)data->amount_c || map_y >= (int)data->amount_l
+	// 	- (int)data->l_map_start || map_x <= 0 || map_y <= 0)
+	// 	return ;
 	if (data->map_2d[map_y][map_x] != 1
 		&& data->map_2d[map_y][data->player->co.co_x / TILE_SIZE] != 1
 		&& data->map_2d[data->player->co.co_y / TILE_SIZE][map_x] != 1)
