@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 12:32:03 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/08 10:19:42 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/13 15:37:15 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	draw_minimap_pixel(t_data *data, int x, int y, float *player_pos)
 	map_x = floor(player_pos[0] / TILE_SIZE + rel_x);
 	map_y = floor(player_pos[1] / TILE_SIZE + rel_y);
 	if (map_x >= 0 && map_y >= 0 && map_x < (int)data->amount_c
-		&& map_y < (int)(data->amount_l - data->l_map_start))
+		&& map_y <= (int)(data->amount_l - data->l_map_start))
 	{
 		if (data->map_2d[map_y][map_x] == 1)
 			my_mlx_pixel_put(data, x, y, 0x87CEEBFF);

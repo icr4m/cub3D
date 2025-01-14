@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/12 08:17:14 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/13 18:35:59 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@
 # define SCREEN_H 640
 # define SENSI_KEY 0.045
 # define SENSI_MOUSE 0.03
-# define START_PLAYER_SPEED 2
+# define START_PLAYER_SPEED 1.64
 # define SPRINT_VALUE 2
 
 #endif
