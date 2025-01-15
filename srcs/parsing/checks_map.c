@@ -6,35 +6,39 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 02:32:31 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/15 09:34:21 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/15 13:15:12 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+void	check_around(t_data *data, size_t i, size_t j)
+{
+	if (i == 0 || j == 0 || i >= data->amount_l_map || j >= data->amount_c - 1)
+		free_and_exit(EXIT_FAILURE, WALL_ERR, data);
+	if (data->map_2d[i + 1][j] == -42 || data->map_2d[i][j + 1] == -42
+		|| data->map_2d[i - 1][j] == -42 || data->map_2d[i][j - 1] == -42)
+		free_and_exit(EXIT_FAILURE, WALL_ERR, data);
+}
+
 void	check_walls(t_data *data)
 {
 	size_t	i;
+	size_t	j;
 
+	j = 0;
 	i = 0;
-	while (i < data->amount_c)
+	while (i <= data->amount_l_map)
 	{
-		if (data->map_2d[0][i] != 1)
-			free_and_exit(EXIT_FAILURE, WALL_ERR, data);
-		i++;
-	}
-	i = 0;
-	while (i < data->amount_c)
-	{
-		if (data->map_2d[data->amount_l_map][i] != 1)
-			free_and_exit(EXIT_FAILURE, WALL_ERR, data);
-		i++;
-	}
-	i = 0;
-	while (i < data->amount_l_map)
-	{
-		if (data->map_2d[i][0] != 1 || data->map_2d[i][data->amount_c - 1] != 1)
-			free_and_exit(EXIT_FAILURE, WALL_ERR, data);
+		j = 0;
+		while (j < data->amount_c)
+		{
+			if (data->map_2d[i][j] == 0 || data->map_2d[i][j] == 11
+				|| data->map_2d[i][j] == 12 || data->map_2d[i][j] == 13
+				|| data->map_2d[i][j] == 14)
+				check_around(data, i, j);
+			j++;
+		}
 		i++;
 	}
 }

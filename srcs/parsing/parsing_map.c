@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:22 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/15 09:28:17 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/15 12:12:52 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,15 @@ static void	allocate_line(char *line, t_data *data, int i)
 		handle_malloc_error("parse 2d map", data);
 	while (j < data->amount_c)
 	{
-		data->map_2d[i][j] = 1;
+		data->map_2d[i][j] = -42;
 		j++;
 	}
 	while (line[index] && index < data->amount_c)
 	{
 		if (line[index] == FLOOR)
 			data->map_2d[i][index] = 0;
+		else if (line[index] == WALL)
+			data->map_2d[i][index] = 1;
 		else if (line[index] == PLAYER_N)
 			data->map_2d[i][index] = 11;
 		else if (line[index] == PLAYER_S)
@@ -60,8 +62,10 @@ static void	allocate_line(char *line, t_data *data, int i)
 			data->map_2d[i][index] = 14;
 		else if (line[index] == DOOR)
 			data->map_2d[i][index] = 42;
+		// else if (line[index] == EMPTY)
+		// 	data->map_2d[i][index] = -42;
 		else
-			data->map_2d[i][index] = 1;
+			data->map_2d[i][index] = -42;
 		index++;
 	}
 }
