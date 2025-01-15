@@ -19,6 +19,8 @@ test_map() {
     local expected_result=$2  # 0 pour les bonnes maps, différent de 0 pour les mauvaises
 
     echo -e "\n${YELLOW}Testing: ${map}${NC}"
+
+    # Exécution sans Valgrind
     ./cub3D "$map"
     result=$?
 
@@ -34,6 +36,17 @@ test_map() {
         else
             echo -e "${RED}✗ ERREUR: La map invalide n'a pas été rejetée${NC}"
         fi
+    fi
+
+    # Exécution avec Valgrind
+    echo -e "${YELLOW}Running Valgrind...${NC}"
+    valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --track-fds=yes --trace-children=yes ./cub3D "$map"
+    valgrind_result=$?
+
+    if [ $valgrind_result -eq 0 ]; then
+        echo -e "${GREEN}Valgrind: Pas de problème détecté${NC}"
+    else
+        echo -e "${RED}Valgrind: Problèmes détectés (voir les détails ci-dessus)${NC}"
     fi
 }
 

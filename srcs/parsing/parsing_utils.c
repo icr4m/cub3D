@@ -6,18 +6,19 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:05:15 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/01 07:17:14 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/15 13:35:57 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	check_file_cub(char *name)
+void	check_file_cub(t_data *data, char *name)
 {
 	const size_t	len = ft_strlen(name);
 
 	if (name[len - 3] != 'c' || name[len - 2] != 'u' || name[len - 1] != 'b')
-		free_and_exit(EXIT_FAILURE, "The map should be .cub map", NULL);
+		close(data->fd), free_and_exit(EXIT_FAILURE,
+			"The map should be .cub map", NULL);
 }
 
 size_t	calculate_max_c(t_data *data, char *line)
