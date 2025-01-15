@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:22 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 11:15:28 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/15 09:28:17 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,9 @@ void	create_2dmap(t_data *data)
 		gc_free(line);
 		line = get_next_line(data->fd);
 		i++;
+		if (line)
+			if (ft_strcmp(line, "\n"))
+				data->amount_l_map++;
 	}
 }
 
