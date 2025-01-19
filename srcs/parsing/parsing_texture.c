@@ -3,14 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_texture.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/13 00:53:49 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/19 18:35:06 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	check_unique_textures(t_data *data)
+{
+	t_texture	*current;
+	t_texture	*check;
+
+	current = data->texture;
+	while (current)
+	{
+		check = current->next;
+		while (check)
+		{
+			if (ft_strcmp(current->identifier, check->identifier) == 0)
+				(close(data->fd), free_and_exit(EXIT_FAILURE,
+						"Duplicate texture identifier", data));
+			check = check->next;
+		}
+		current = current->next;
+	}
+}
 
 void	new_texture(t_data *data, char *line, char *identifier)
 {
@@ -82,9 +102,9 @@ void	start_parse(t_data *data, char **av)
 	data->l_map_start = count_line + 1;
 	if (!line)
 		(close(data->fd), free_and_exit(EXIT_FAILURE, "No map found", data));
-	if (nb_elem < 6 || nb_elem > 7)
+	if (nb_elem != 6)
 		(close(data->fd), free_and_exit(EXIT_FAILURE, "Wrong elements", data));
 	data->amount_c = calculate_max_c(data, line) - 1;
-	parse_map(data, av);
+	(check_unique_textures(data), parse_map(data, av));
 	(check_walls(data), check_player(data), check_color(data));
 }
