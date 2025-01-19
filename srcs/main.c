@@ -12,6 +12,7 @@
 
 #include "cub3d.h"
 
+
 int	main(int ac, char **av)
 {
 	t_data	data;
@@ -21,7 +22,7 @@ int	main(int ac, char **av)
 	check_file_cub(&data, av[1]);
 	start_parse(&data, av);
 	// test_map_parsing(&data) /* affiche_texture_debug(data) */;
-	// start_mlx(&data);
-	// start_game(&data);
+	start_mlx(&data);
+	start_game(&data);
 	exit_and_free(EXIT_SUCCESS, &data);
 }

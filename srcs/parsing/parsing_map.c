@@ -62,8 +62,6 @@ static void	allocate_line(char *line, t_data *data, int i)
 			data->map_2d[i][index] = 14;
 		else if (line[index] == DOOR)
 			data->map_2d[i][index] = 42;
-		// else if (line[index] == EMPTY)
-		// 	data->map_2d[i][index] = -42;
 		else
 			data->map_2d[i][index] = -42;
 		index++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/08 12:04:47 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/19 17:33:49 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	minimap_manager(t_data *data)
 
 int	press_manager(int keynb, t_data *data)
 {
+	int	door_index;
+
 	if (keynb == ECHAP)
 		exit_and_free(EXIT_SUCCESS, data);
 	if (keynb == M)
@@ -42,6 +44,30 @@ int	press_manager(int keynb, t_data *data)
 		data->player->is_sprinting = SPRINT_VALUE;
 	if (keynb == 65535)
 		data->player->is_sprinting = 13;
+	if (keynb == E) 
+	{
+		int x, y;
+		door_index = 0;
+		y = 0;
+		while (y < (int)(data->amount_l - data->l_map_start))
+		{
+			x = 0;
+			while (x < (int)data->amount_c)
+			{
+				if (data->map_2d[y][x] == 42)
+				{
+					if (data->doors[door_index]->is_near)
+					{
+						data->doors[door_index]->is_moving = 1;
+						data->doors[door_index]->opening = (data->doors[door_index]->position < 0.5);
+					}
+					door_index++;
+				}
+				x++;
+			}
+			y++;
+		}
+	}
 	return (0);
 }
 

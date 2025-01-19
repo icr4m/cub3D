@@ -54,6 +54,16 @@ typedef struct s_player
 	double				is_sprinting;
 }						t_player;
 
+typedef struct s_doors
+{
+	float				position;
+	int					is_moving;
+	int					is_near;
+	int					opening;
+	float				speed;
+
+}						t_doors;
+
 typedef struct s_rayon
 {
 	double				distance;
@@ -80,6 +90,8 @@ typedef struct s_texture
 
 typedef struct s_data
 {
+	t_doors				**doors;
+	int					nb_doors;
 	bool				is_minimap;
 	void				*mlx_ptr;
 	void				*win_ptr;

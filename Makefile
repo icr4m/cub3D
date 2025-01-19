@@ -2,7 +2,7 @@ NAME = cub3D
 
 # SOURCES
 SRCS_GC = $(addprefix srcs/garbage_collector/, gc_init.c gc_malloc.c gc_destroy.c gc_utils.c)
-SRCS_EXEC = $(addprefix srcs/exec/, cast_curseur.c cast_rayons.c draw_minimap.c cast_rayons_utils.c game_loop.c player_moves.c input_manager.c render_wall.c render_wall_utils.c start_game.c)
+SRCS_EXEC = $(addprefix srcs/exec/, cast_curseur.c cast_rayons.c draw_minimap.c cast_rayons_utils.c game_loop.c player_moves.c input_manager.c render_wall.c render_wall_utils.c door.c start_game.c)
 SRCS_PARS = $(addprefix srcs/parsing/, checks_map.c parsing_colors.c parsing_texture.c parsing_map.c parsing_utils.c parsing_xpm.c)
 SRCS_UTILS = $(addprefix srcs/utils/, error.c init_cub.c debug.c)
 MAIN = $(addprefix srcs/, main.c)
