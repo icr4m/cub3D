@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   move_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:02:23 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 14:10:14 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 17:23:59 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	get_door_row_index(t_data *data, int map_y)
+static int	get_door_row_index(t_data *data, int map_y)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ int	get_door_row_index(t_data *data, int map_y)
 	return (door_index);
 }
 
-int	get_door_col_index(t_data *data, int map_y, int map_x)
+static int	get_door_col_index(t_data *data, int map_y, int map_x)
 {
 	int	j;
 	int	door_index;
@@ -50,7 +50,7 @@ int	get_door_col_index(t_data *data, int map_y, int map_x)
 	return (door_index);
 }
 
-int	is_door_blocked(t_data *data, t_move_data *move)
+static int	is_door_blocked(t_data *data, t_move_data *move)
 {
 	int	door_index;
 
@@ -63,7 +63,7 @@ int	is_door_blocked(t_data *data, t_move_data *move)
 	return (0);
 }
 
-void	adjust_position(t_data *data, t_move_data *move)
+static void	adjust_position(t_data *data, t_move_data *move)
 {
 	if (move->new_x % TILE_SIZE == 0 && data->map_2d[move->map_y][move->map_x
 		- 1] == 1)

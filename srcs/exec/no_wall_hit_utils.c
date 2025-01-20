@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   no_wall_hit_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 02:24:40 by rsk               #+#    #+#             */
-/*   Updated: 2025/01/20 13:57:09 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 17:31:50 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	handle_horizontal_door(t_data *data, int x, float co_x, int door_index)
 
 int	is_vertical_door(t_data *data, int x, int y)
 {
-	return (y > 0 && data->map_2d[y - 1][x] == 1 &&
-			y < (int)(data->amount_l - data->l_map_start) &&
-			data->map_2d[y + 1][x] == 1);
+	return (y > 0 && data->map_2d[y - 1][x] == 1 && y < (int)(data->amount_l
+			- data->l_map_start) && data->map_2d[y + 1][x] == 1);
 }

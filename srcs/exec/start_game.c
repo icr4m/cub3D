@@ -6,7 +6,7 @@
 /*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 04:32:42 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:29:41 by erwfonta         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:19:40 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	start_game(t_data *data)
 	if (!data->player)
 		handle_malloc_error("Start game calloc error", data);
 	data->ray = ft_calloc(1, sizeof(t_rayon));
-	if(!data->ray)
+	if (!data->ray)
 		handle_malloc_error("Start game calloc error", data);
 	init_player(data);
 	mlx_loop_hook(data->mlx_ptr, loop_render_game, data);
