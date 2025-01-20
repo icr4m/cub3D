@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/19 18:35:06 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 11:34:14 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,6 @@ int	test_identifier(char *line, t_data *data)
 		return (new_texture(data, line + 2, ID_F), 1);
 	else if (ft_strncmp(line, ID_C, 2) == 0)
 		return (new_texture(data, line + 2, ID_C), 1);
-	else if (ft_strncmp(line, ID_DO, 2) == 0)
-		return (new_texture(data, line + 2, ID_DO), 1);
 	return (0);
 }
 
@@ -105,6 +103,7 @@ void	start_parse(t_data *data, char **av)
 	if (nb_elem != 6)
 		(close(data->fd), free_and_exit(EXIT_FAILURE, "Wrong elements", data));
 	data->amount_c = calculate_max_c(data, line) - 1;
-	(check_unique_textures(data), parse_map(data, av));
+	(new_texture(data, "textures/rendu/4.xpm", ID_DO),
+		check_unique_textures(data), parse_map(data, av));
 	(check_walls(data), check_player(data), check_color(data));
 }

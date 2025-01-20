@@ -1,22 +1,21 @@
 #!/bin/bash
 
-# Couleurs pour le formatage
 GREEN='\033[0;32m'
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
-# Vérifier si l'exécutable existe
+# Verif executable
 if [ ! -f "./cub3D" ]; then
     echo -e "${RED}Erreur: L'exécutable cub3D n'existe pas.${NC}"
     echo "Veuillez compiler le projet d'abord."
     exit 1
 fi
 
-# Fonction pour tester une map
+# Fonction test map
 test_map() {
     local map=$1
-    local expected_result=$2  # 0 pour les bonnes maps, différent de 0 pour les mauvaises
+    local expected_result=$2
 
     echo -e "\n${YELLOW}Testing: ${map}${NC}"
     ./cub3D "$map"
@@ -37,7 +36,7 @@ test_map() {
     fi
 }
 
-# Test des bonnes maps
+# Test bonnes maps
 echo -e "\n${YELLOW}=== Tests des maps valides ===${NC}"
 if [ -d "maps/good" ]; then
     for map in maps/good/*; do
@@ -49,7 +48,7 @@ else
     echo -e "${RED}Le dossier maps/good n'existe pas${NC}"
 fi
 
-# Test des mauvaises maps
+# Test mauvaises maps
 echo -e "\n${YELLOW}=== Tests des maps invalides ===${NC}"
 if [ -d "maps/bad" ]; then
     for map in maps/bad/*; do
