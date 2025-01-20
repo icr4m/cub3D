@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   struct.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:04:12 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:04:13 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 15:14:59 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ typedef struct s_data
 {
 	t_doors				**doors;
 	int					nb_doors;
+	double				wall_h;
 	bool				is_minimap;
 	void				*mlx_ptr;
 	void				*win_ptr;

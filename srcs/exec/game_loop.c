@@ -6,7 +6,7 @@
 /*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 08:28:43 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/19 18:02:20 by erwfonta         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:40:39 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	draw_interaction_text(t_data *data)
 		{
 			if (data->map_2d[y][x] == 42 && data->doors[door_index]->is_near)
 			{
-				mlx_string_put(data->mlx_ptr, data->win_ptr, SCREEN_W / 2 - 50,
-					SCREEN_H - 50, 0xFFFFFF, "Press E to interact");
+				mlx_string_put(data->mlx_ptr, data->win_ptr, SCREEN_W / 2.2,
+					SCREEN_H / 1.5, 0xEC8921, "Press E to interact");
 				return ;
 			}
 			if (data->map_2d[y][x] == 42)

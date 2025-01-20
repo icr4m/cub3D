@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/13 18:35:59 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 15:35:57 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@
 
 # define FOV 80
 # define TILE_SIZE 30
-# define SCREEN_W 1024
-# define SCREEN_H 640
+# define SCREEN_W 1920
+# define SCREEN_H 1080
 # define SENSI_KEY 0.045
 # define SENSI_MOUSE 0.03
 # define START_PLAYER_SPEED 1.64

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_xpm.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 19:24:14 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 02:50:45 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/20 15:35:04 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	init_image(t_data *data)
 {
 	data->img->img_ptr = mlx_new_image(data->mlx_ptr, SCREEN_W, SCREEN_H);
 	data->img->addr = mlx_get_data_addr(data->img->img_ptr,
-			&data->img->bits_per_pixel,
-			&data->img->line_length,
+			&data->img->bits_per_pixel, &data->img->line_length,
 			&data->img->endian);
 }
 
@@ -26,6 +25,8 @@ void	parse_xpm(t_data *data, t_texture *current)
 	char	*trimmed_path;
 
 	trimmed_path = ft_strtrim(current->path, "\n\t ");
+	if (!trimmed_path)
+		handle_malloc_error("Parse xpm strtrim error", data);
 	gc_free(current->path);
 	current->path = trimmed_path;
 	current->img = mlx_xpm_file_to_image(data->mlx_ptr, current->path,

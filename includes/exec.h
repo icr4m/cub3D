@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:03:59 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:04:01 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 15:22:16 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ int			inter_check(float angle, float *inter, float *step, int is_horizon);
 float		nor_angle(float angle);
 int			unit_circle(float angle, char c);
 int			no_wall_hit(t_data *data, float co_x, float co_y);
-
+void		draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix);
 void		start_game(t_data *data);
 int			loop_render_game(t_data *data);
+double		get_texture_x_offset(t_texture *texture, t_data *data);
 
 float		calculate_distance_to_door(t_data *data, int door_x, int door_y);
 int			is_near_door(t_data *data, int door_x, int door_y);

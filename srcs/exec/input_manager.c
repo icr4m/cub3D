@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 13:54:06 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 15:41:03 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	close_windows(t_data *data)
 
 int	mouse_manager(int x, int y, t_data *data)
 {
-	mlx_mouse_hide(data->mlx_ptr, data->win_ptr);
 	if (x == SCREEN_W / 2 && y == SCREEN_H / 2)
 		return (0);
 	if (x >= SCREEN_W / 2)

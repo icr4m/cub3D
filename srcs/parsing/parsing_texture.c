@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_texture.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 14:55:00 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 15:44:23 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void	start_parse(t_data *data, char **av)
 	if (nb_elem != 6)
 		(close(data->fd), free_and_exit(EXIT_FAILURE, "Wrong elements", data));
 	data->amount_c = calculate_max_c(data, line) - 1;
-	(new_texture(data, "textures/rendu/4.xpm", ID_DO),
+	(new_texture(data, "textures/rendu/DOOR.xpm", ID_DO),
 		check_unique_textures(data), parse_map(data, av));
 	(check_walls(data), check_player(data), check_color(data));
 }

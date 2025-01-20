@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 04:32:42 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/07 12:14:49 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 15:29:41 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,11 @@ static void	init_player(t_data *data)
 void	start_game(t_data *data)
 {
 	data->player = ft_calloc(1, sizeof(t_player));
+	if (!data->player)
+		handle_malloc_error("Start game calloc error", data);
 	data->ray = ft_calloc(1, sizeof(t_rayon));
+	if(!data->ray)
+		handle_malloc_error("Start game calloc error", data);
 	init_player(data);
 	mlx_loop_hook(data->mlx_ptr, loop_render_game, data);
 	mlx_hook(data->win_ptr, MotionNotify, PointerMotionMask, mouse_manager,
