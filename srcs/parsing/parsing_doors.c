@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_doors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 02:48:04 by rsk               #+#    #+#             */
-/*   Updated: 2025/01/20 14:59:48 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 17:30:44 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	init_single_door(t_data *data, int count)
 		handle_malloc_error("door allocation", data);
 	data->doors[count]->position = 1;
 	data->doors[count]->is_moving = 0;
-	data->doors[count]->speed = 0.005;
+	data->doors[count]->speed = 0.01;
 }
 
 static void	allocate_doors(t_data *data)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   door.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 15:19:51 by erwfonta          #+#    #+#             */
-/*   Updated: 2025/01/20 02:36:47 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/20 17:22:23 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-float	calculate_distance_to_door(t_data *data, int door_x, int door_y)
+static float	calculate_distance_to_door(t_data *data, int door_x, int door_y)
 {
 	float	dist_x;
 	float	dist_y;
@@ -22,7 +22,7 @@ float	calculate_distance_to_door(t_data *data, int door_x, int door_y)
 	return (sqrt(pow(dist_x, 2) + pow(dist_y, 2)));
 }
 
-int	is_near_door(t_data *data, int door_x, int door_y)
+static int	is_near_door(t_data *data, int door_x, int door_y)
 {
 	float	distance;
 

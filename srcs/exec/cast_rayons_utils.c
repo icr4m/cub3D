@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rayons_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:27:15 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 13:52:34 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 17:19:59 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ int	unit_circle(float angle, char c)
 	return (0);
 }
 
-// Fonction principale
 int	no_wall_hit(t_data *data, float co_x, float co_y)
 {
 	int	x;

@@ -6,13 +6,13 @@
 /*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 08:28:43 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:40:39 by erwfonta         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:22:47 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	draw_interaction_text(t_data *data)
+static void	draw_interaction_text(t_data *data)
 {
 	int	door_index;
 	int	y;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   player_moves.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 08:40:57 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 14:04:23 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 17:24:44 by erwfonta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	rotate_player(t_data *data, int flag)
+static void	rotate_player(t_data *data, int flag)
 {
 	if (flag == 1)
 	{
@@ -44,7 +44,7 @@ void	rotate_mouse(t_data *data, int flag)
 	}
 }
 
-void	set_movement_values(t_data *data, double *move_x, double *move_y)
+static void	set_movement_values(t_data *data, double *move_x, double *move_y)
 {
 	if (data->player->lr_flag == 1)
 	{
