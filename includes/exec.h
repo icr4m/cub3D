@@ -5,6 +5,10 @@
 
 void		cast_rayons(t_data *data);
 
+float		cal_horizontal_inter(t_data *data, float angle);
+float		cal_vertical_inter(t_data *data, float angle);
+void		minimap_manager(t_data *data);
+void		handle_basic_controls(int keynb, t_data *data);
 int			inter_check(float angle, float *inter, float *step, int is_horizon);
 float		nor_angle(float angle);
 int			unit_circle(float angle, char c);
@@ -34,5 +38,13 @@ void		rotate_mouse(t_data *data, int flag);
 
 void		cast_curseur(t_data *data);
 void		draw_minimap(t_data *data);
+
+int			is_within_bounds(t_data *data, float co_x, float co_y);
+int			calculate_door_index(t_data *data, int x, int y);
+int			handle_vertical_door(t_data *data, int y, float co_y,
+				int door_index);
+int			handle_horizontal_door(t_data *data, int x, float co_x,
+				int door_index);
+int			is_vertical_door(t_data *data, int x, int y);
 
 #endif

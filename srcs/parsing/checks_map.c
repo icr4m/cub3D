@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 02:32:31 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/15 13:15:12 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 02:58:26 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,18 @@ void	check_walls(t_data *data)
 	}
 }
 
+static void	update_player_data(t_data *data, size_t i, size_t j, size_t *count)
+{
+	if (data->map_2d[i][j] == 11 || data->map_2d[i][j] == 12
+		|| data->map_2d[i][j] == 13 || data->map_2d[i][j] == 14)
+	{
+		data->start_player_pos.co_x = j;
+		data->start_player_pos.co_y = i;
+		data->p_id = data->map_2d[i][j];
+		(*count)++;
+	}
+}
+
 void	check_player(t_data *data)
 {
 	size_t	i;
@@ -56,14 +68,7 @@ void	check_player(t_data *data)
 		j = 0;
 		while (j < data->amount_c)
 		{
-			if (data->map_2d[i][j] == 11 || data->map_2d[i][j] == 12
-				|| data->map_2d[i][j] == 13 || data->map_2d[i][j] == 14)
-			{
-				data->start_player_pos.co_x = j;
-				data->start_player_pos.co_y = i;
-				data->p_id = data->map_2d[i][j];
-				count++;
-			}
+			update_player_data(data, i, j, &count);
 			j++;
 		}
 		i++;

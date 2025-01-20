@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:10:22 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/15 12:12:52 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 02:56:17 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,21 +31,27 @@ static void	unknown_char(char *str, t_data *data)
 	}
 }
 
-static void	allocate_line(char *line, t_data *data, int i)
+static void	init_line(t_data *data, int i)
 {
-	size_t	index;
 	size_t	j;
 
-	j = 0;
-	index = 0;
 	data->map_2d[i] = gc_malloc(data->amount_c * (sizeof(int)));
 	if (!data->map_2d[i])
 		handle_malloc_error("parse 2d map", data);
+	j = 0;
 	while (j < data->amount_c)
 	{
 		data->map_2d[i][j] = -42;
 		j++;
 	}
+}
+
+static void	allocate_line(char *line, t_data *data, int i)
+{
+	size_t	index;
+
+	init_line(data, i);
+	index = 0;
 	while (line[index] && index < data->amount_c)
 	{
 		if (line[index] == FLOOR)
