@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exec.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:03:59 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:22:16 by erwfonta         ###   ########.fr       */
+/*   Updated: 2025/01/20 16:27:06 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ void		render_wall(t_data *data, int ray);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int			create_trgb(int t, int r, int g, int b);
 t_texture	*get_texture(t_data *data, int i);
-int			get_pixel_color(t_texture *texture, int x, int y);
 
 int			press_manager(int keynb, t_data *data);
 int			release_manager(int keynb, t_data *data);
 int			close_windows(t_data *data);
-int			input_manager(int keynb, t_data *data);
 int			mouse_manager(int x, int y, t_data *data);
 
 void		move_player(t_data *data, double move_x, double move_y);
