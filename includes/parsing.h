@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:32 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 02:49:04 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/20 14:51:19 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,10 @@ void		init_doors(t_data *data);
 void		start_mlx(t_data *data);
 
 t_texture	*search_texture(t_data *data, char *identifier);
+
+t_rgb		*init_rgb_struct(t_data *data, char *identifier);
+char		*remove_spaces(t_data *data, char *str);
+void		check_rgb_values(char **rgb_splitted, t_data *data);
+void		set_rgb_values(t_rgb *rgb, char **rgb_splitted, t_data *data);
 
 #endif

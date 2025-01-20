@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   struct.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/20 15:04:12 by ijaber            #+#    #+#             */
+/*   Updated: 2025/01/20 15:04:13 by ijaber           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef STRUCT_H
 # define STRUCT_H
 
@@ -25,6 +37,14 @@ typedef struct s_point
 	int					co_x;
 	int					co_y;
 }						t_point;
+
+typedef struct s_move_data
+{
+	int					new_x;
+	int					new_y;
+	int					map_x;
+	int					map_y;
+}						t_move_data;
 
 typedef struct s_rgb
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exec.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/20 15:03:59 by ijaber            #+#    #+#             */
+/*   Updated: 2025/01/20 15:04:01 by ijaber           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef EXEC_H
 # define EXEC_H
 
@@ -32,6 +44,8 @@ int			release_manager(int keynb, t_data *data);
 int			close_windows(t_data *data);
 int			input_manager(int keynb, t_data *data);
 int			mouse_manager(int x, int y, t_data *data);
+
+void		move_player(t_data *data, double move_x, double move_y);
 
 void		manager_player(t_data *data);
 void		rotate_mouse(t_data *data, int flag);

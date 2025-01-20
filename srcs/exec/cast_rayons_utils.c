@@ -3,19 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rayons_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 10:27:15 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 02:24:28 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/20 13:52:34 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 /*
-** check_intersection: Vérifie et ajuste les calculs d'intersection pour le ray-casting
+** check_intersection: Vérifie et ajuste les calculs d'intersection pour le
+** ray-casting
 ** @param angle: angle du rayon en radians
-** @param inter: pointeur vers la position de l'intersection (modifié selon la direction)
+** @param inter: pointeur vers la position de l'intersection (modifié
+** selon la direction)
 ** @param step: pointeur vers la valeur du pas (inversé si nécessaire)
 ** @param is_horizon: booléen - 1 pour intersection horizontale,
 	0 pour verticale

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   no_wall_hit_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 02:24:40 by rsk               #+#    #+#             */
-/*   Updated: 2025/01/20 02:40:24 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/20 13:57:09 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	is_within_bounds(t_data *data, float co_x, float co_y)
 	x = floor(co_x / TILE_SIZE);
 	y = floor(co_y / TILE_SIZE);
 	return (x < (int)data->amount_c && y < (int)(data->amount_l
-			- data->l_map_start));
+		- data->l_map_start));
 }
 
 int	calculate_door_index(t_data *data, int x, int y)

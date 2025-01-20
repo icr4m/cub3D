@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_manager.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 15:08:51 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 02:37:38 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/20 13:54:06 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ static void	handle_doors(t_data *data)
 				if (data->doors[door_index]->is_near)
 				{
 					data->doors[door_index]->is_moving = 1;
-					data->doors[door_index]->opening = (data->doors[door_index]->position < 0.5);
+					data->doors[door_index]->opening = \
+					(data->doors[door_index]->position < 0.5);
 				}
 				door_index++;
 			}

@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 17:05:15 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/15 13:35:57 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 14:59:29 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	check_file_cub(t_data *data, char *name)
 	const size_t	len = ft_strlen(name);
 
 	if (name[len - 3] != 'c' || name[len - 2] != 'u' || name[len - 1] != 'b')
-		close(data->fd), free_and_exit(EXIT_FAILURE,
-			"The map should be .cub map", NULL);
+	{
+		close(data->fd);
+		free_and_exit(EXIT_FAILURE, "The map should be .cub map", NULL);
+	}
 }
 
 size_t	calculate_max_c(t_data *data, char *line)

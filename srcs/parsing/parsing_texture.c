@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:07:01 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 11:34:14 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 14:55:00 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,8 +93,7 @@ void	start_parse(t_data *data, char **av)
 			nb_elem++;
 		else if (ft_strcmp(line, "\n"))
 			break ;
-		gc_free(line);
-		line = get_next_line(data->fd);
+		(gc_free(line), line = get_next_line(data->fd));
 		count_line++;
 	}
 	data->l_map_start = count_line + 1;
