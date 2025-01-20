@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 12:32:03 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/13 15:37:15 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 17:57:54 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	draw_minimap_pixel(t_data *data, int x, int y, float *player_pos)
 		if (data->map_2d[map_y][map_x] == 1)
 			my_mlx_pixel_put(data, x, y, 0x87CEEBFF);
 		else if (data->map_2d[map_y][map_x] == 42)
-			my_mlx_pixel_put(data, x, y, 0xFFA500FF);
+			my_mlx_pixel_put(data, x, y, 0xEC8921);
 		else
 			my_mlx_pixel_put(data, x, y, 0xFFFFFFFF);
 	}
