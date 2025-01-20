@@ -6,7 +6,7 @@
 /*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 13:58:32 by ijaber            #+#    #+#             */
-/*   Updated: 2024/12/13 00:58:09 by rsk              ###   ########.fr       */
+/*   Updated: 2025/01/20 02:44:30 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ void	draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix)
 	i = bot_pix;
 	while (i < SCREEN_H)
 		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->ceiling->r,
-				data->ceiling->g, data->ceiling->b));
+					data->ceiling->g, data->ceiling->b));
 	i = 0;
 	while (i < top_pix)
 		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->floor->r,
-				data->floor->g, data->floor->b));
+					data->floor->g, data->floor->b));
 }
 
 double	get_texture_x_offset(t_texture *texture, t_data *data)
@@ -106,7 +106,7 @@ void	draw_wall(t_data *data, int ray, int top_pix, int bot_pix,
 	while (top_pix < bot_pix && (int)y_offset < texture->s_y)
 	{
 		color = get_texture_color(calculate_pos(y_offset, x_offset, texture),
-				texture);
+									texture);
 		my_mlx_pixel_put(data, ray, top_pix, color);
 		y_offset += step;
 		top_pix++;

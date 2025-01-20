@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 16:27:32 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/15 13:34:48 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 02:49:04 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int			test_identifier(char *line, t_data *data);
 
 void		check_file_cub(t_data *data, char *name);
 size_t		calculate_max_c(t_data *data, char *line);
+
+void		init_doors(t_data *data);
 
 void		start_mlx(t_data *data);
 

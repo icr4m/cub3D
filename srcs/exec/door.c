@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   door.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rsk <rsk@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 15:19:51 by erwfonta          #+#    #+#             */
-/*   Updated: 2025/01/19 17:32:39 by erwfonta         ###   ########.fr       */
+/*   Updated: 2025/01/20 02:36:47 by rsk              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,34 @@ float	calculate_distance_to_door(t_data *data, int door_x, int door_y)
 
 int	is_near_door(t_data *data, int door_x, int door_y)
 {
-	float distance = calculate_distance_to_door(data, door_x, door_y);
-	return (distance <= TILE_SIZE * 2); // Distance de détection ajustable
+	float	distance;
+
+	distance = calculate_distance_to_door(data, door_x, door_y);
+	return (distance <= TILE_SIZE * 2);
 }
 
-void update_door(t_data *data, t_doors *door, int x, int y)
+void	update_door(t_data *data, t_doors *door, int x, int y)
 {
-    door->is_near = is_near_door(data, x, y);
-
-    if (door->is_moving)
-    {
-        if (door->opening)
-        {
-            door->position += door->speed;
-            if (door->position >= 1.0)
-            {
-                door->position = 1.0;
-                door->is_moving = 0;
-            }
-        }
-        else
-        {
-            door->position -= door->speed;
-            if (door->position <= 0)
-            {
-                door->position = 0;
-                door->is_moving = 0;
-            }
-        }
-    }
+	door->is_near = is_near_door(data, x, y);
+	if (door->is_moving)
+	{
+		if (door->opening)
+		{
+			door->position += door->speed;
+			if (door->position >= 1.0)
+			{
+				door->position = 1.0;
+				door->is_moving = 0;
+			}
+		}
+		else
+		{
+			door->position -= door->speed;
+			if (door->position <= 0)
+			{
+				door->position = 0;
+				door->is_moving = 0;
+			}
+		}
+	}
 }
