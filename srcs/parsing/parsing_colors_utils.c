@@ -6,7 +6,7 @@
 /*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 14:44:18 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:00:41 by ijaber           ###   ########.fr       */
+/*   Updated: 2025/01/20 17:54:12 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,10 @@ void	check_rgb_values(char **rgb_splitted, t_data *data)
 	if (ft_strcmp(rgb_splitted[0], "\n") == 0 || ft_strcmp(rgb_splitted[1],
 			"\n") == 0 || ft_strcmp(rgb_splitted[2], "\n") == 0)
 		free_and_exit(EXIT_FAILURE, RGB_FORMAT_ERR, data);
+	rgb_splitted[2][ft_strlen(rgb_splitted[2]) - 1] = '\0';
+	if (!ft_is_numeric(rgb_splitted[0]) || !ft_is_numeric(rgb_splitted[1])
+		|| !ft_is_numeric(rgb_splitted[2]))
+		free_and_exit(EXIT_FAILURE, RGB_CHAR_ERR, data);
 }
 
 void	set_rgb_values(t_rgb *rgb, char **rgb_splitted, t_data *data)

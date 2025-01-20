@@ -38,8 +38,8 @@ test_map() {
 
 # Test bonnes maps
 echo -e "\n${YELLOW}=== Tests des maps valides ===${NC}"
-if [ -d "maps/good" ]; then
-    for map in maps/good/*; do
+if [ -d "test_maps/good" ]; then
+    for map in test_maps/good/*; do
         if [ -f "$map" ]; then
             test_map "$map" 0
         fi
@@ -50,8 +50,8 @@ fi
 
 # Test mauvaises maps
 echo -e "\n${YELLOW}=== Tests des maps invalides ===${NC}"
-if [ -d "maps/bad" ]; then
-    for map in maps/bad/*; do
+if [ -d "test_maps/bad" ]; then
+    for map in test_maps/bad/*; do
         if [ -f "$map" ]; then
             test_map "$map" 1
         fi

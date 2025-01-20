@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_wall_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 03:48:01 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:22:07 by erwfonta         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:28:23 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	draw_plafond_sol(t_data *data, int ray, int top_pix, int bot_pix)
 
 	i = bot_pix;
 	while (i < SCREEN_H)
-		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->ceiling->r,
-				data->ceiling->g, data->ceiling->b));
-	i = 0;
-	while (i < top_pix)
 		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->floor->r,
 				data->floor->g, data->floor->b));
+	i = 0;
+	while (i < top_pix)
+		my_mlx_pixel_put(data, ray, i++, create_trgb(255, data->ceiling->r,
+				data->ceiling->g, data->ceiling->b));
 }

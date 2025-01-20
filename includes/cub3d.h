@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erwfonta <erwfonta@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ijaber <ijaber@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:25:31 by ijaber            #+#    #+#             */
-/*   Updated: 2025/01/20 15:35:57 by erwfonta         ###   ########.fr       */
+/*   Updated: 2025/01/20 17:35:36 by ijaber           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,14 @@
 # define FAILED_ALLOC "Malloc failed."
 # define WALL_ERR "Map must be surrounded by walls."
 # define NO_P_ERR "No player start found"
-# define TOO_P_ERR "Too much player start found"
+# define TOO_P_ERR "Too many player start found"
 # define RGB_ERR "RGB values must be between 0 and 255"
 # define RGB_FORMAT_ERR "RGB format should be R,G,B"
 # define XPM_FAILED "Problem with xpm files"
 # define MLX_ERROR "Failed to initialize mlx"
 # define WIN_ERROR "Failed to create a window with mlx"
 # define ERR_OPEN "Failed to open map"
+# define RGB_CHAR_ERR "RGB should be numeric"
 
 # define FOV 80
 # define TILE_SIZE 30
